@@ -1,0 +1,253 @@
+<?php
+/**
+ * @file
+ * Extra Functions for Esetec theme.
+ */
+use Drupal\file\Entity\File;
+/**
+ * Sanitise input urls.
+ */
+function santise_val_url($url) {
+	if (!empty($url)) {
+		// Sanitise (remove all illegal characters) from url.
+		$url = filter_var($url, FILTER_SANITIZE_URL);
+
+		// Validate url.
+		if (filter_var($url, FILTER_VALIDATE_URL) == TRUE) {
+			return $url;
+		} else {
+			return '#';
+		}
+	}
+	return '';
+}
+/**
+ * Helper function to clean NULL placeholder arguments in TranslatableMarkup.
+ */
+function _esetec_sanitize_translatable_markup($markup) {
+  if ($markup instanceof \Drupal\Core\StringTranslation\TranslatableMarkup) {
+    $arguments = $markup->getArguments();
+    $modified = FALSE;
+    foreach ($arguments as $arg_key => $arg_val) {
+      if ($arg_val === NULL) {
+        $arguments[$arg_key] = '';
+        $modified = TRUE;
+      }
+    }
+    if ($modified) {
+      return new \Drupal\Core\StringTranslation\TranslatableMarkup(
+        $markup->getUntranslatedString(),
+        $arguments,
+        $markup->getOptions()
+      );
+    }
+  }
+  return $markup;
+}
+
+function esetec_preprocess_html(&$variables) {
+	$variables['base_path'] = base_path();
+	$variables['esetec_path'] = \Drupal::service('extension.list.theme')->getPath('esetec');
+	$variables['font_src'] = theme_get_setting('font_src', 'esetec') ?? '';
+	$variables['styling'] = theme_get_setting('styling', 'esetec') ?? '';
+	$variables['styling_code'] = theme_get_setting('styling_code', 'esetec') ?? '';
+	$variables['slider_show'] = theme_get_setting('slider_show', 'esetec') ?? '';
+	$variables['slider_speed'] = theme_get_setting('slider_speed', 'esetec') ?? '';
+
+	if (isset($variables['page']['#title'])) {
+		$variables['page']['#title'] = _esetec_sanitize_translatable_markup($variables['page']['#title']);
+	}
+}
+function esetec_preprocess_page(array &$variables) {
+	if (isset($variables['title'])) {
+		$variables['title'] = _esetec_sanitize_translatable_markup($variables['title']);
+	}
+	if (isset($variables['page']['#title'])) {
+		$variables['page']['#title'] = _esetec_sanitize_translatable_markup($variables['page']['#title']);
+	}
+	// theme path
+	$variables['esetec_path'] = \Drupal::service('extension.list.theme')->getPath('esetec');
+	$variables['page_esetec_path'] = $variables['esetec_path'];
+	
+	// Layout
+	$variables['container_width'] = theme_get_setting('container_width', 'esetec');
+	$variables['header_width'] = theme_get_setting('header_width', 'esetec');
+	$variables['main_width'] = theme_get_setting('main_width', 'esetec');
+	$variables['footer_width'] = theme_get_setting('footer_width', 'esetec');
+
+	// homepage slider
+	$variables['slider_show'] = theme_get_setting('slider_show', 'esetec');
+	$variables['slider_speed'] = theme_get_setting('slider_speed', 'esetec') ?: 5000;
+
+	// Slide 1
+	$variables['slider_image_1'] = _esetec_get_setting_image_url('slider_image_1');
+	$variables['slider_title_1'] = theme_get_setting('slider_title_1', 'esetec') ?: 'welcome To Qeducato';
+	$variables['slider_heading_1'] = theme_get_setting('slider_heading_1', 'esetec') ?: 'Education is the best key success in life';
+	$variables['slider_desc_1'] = theme_get_setting('slider_desc_1', 'esetec') ?: 'Donec vitae libero non enim placerat eleifend aliquam erat volutpat. Curabitur diam ex, dapibus purus sapien, cursus sed nisl tristique, commodo gravida lectus non.';
+	$variables['slider_btn1_text_1'] = theme_get_setting('slider_btn1_text_1', 'esetec') ?: 'Discover More';
+	$variables['slider_btn1_link_1'] = theme_get_setting('slider_btn1_link_1', 'esetec') ?: 'a-propos';
+	$variables['slider_btn2_text_1'] = theme_get_setting('slider_btn2_text_1', 'esetec') ?: 'Contact Us';
+	$variables['slider_btn2_link_1'] = theme_get_setting('slider_btn2_link_1', 'esetec') ?: 'contact';
+
+	// Slide 2
+	$variables['slider_image_2'] = _esetec_get_setting_image_url('slider_image_2');
+	$variables['slider_title_2'] = theme_get_setting('slider_title_2', 'esetec') ?: 'welcome To Qeducato';
+	$variables['slider_heading_2'] = theme_get_setting('slider_heading_2', 'esetec') ?: 'Education is the best key success in life';
+	$variables['slider_desc_2'] = theme_get_setting('slider_desc_2', 'esetec') ?: 'Donec vitae libero non enim placerat eleifend aliquam erat volutpat. Curabitur diam ex, dapibus purus sapien, cursus sed nisl tristique, commodo gravida lectus non.';
+	$variables['slider_btn1_text_2'] = theme_get_setting('slider_btn1_text_2', 'esetec') ?: 'Discover More';
+	$variables['slider_btn1_link_2'] = theme_get_setting('slider_btn1_link_2', 'esetec') ?: 'a-propos';
+	$variables['slider_btn2_text_2'] = theme_get_setting('slider_btn2_text_2', 'esetec') ?: 'Contact Us';
+	$variables['slider_btn2_link_2'] = theme_get_setting('slider_btn2_link_2', 'esetec') ?: 'contact';
+
+	// Slide 3
+	$variables['slider_image_3'] = _esetec_get_setting_image_url('slider_image_3');
+	$variables['slider_title_3'] = theme_get_setting('slider_title_3', 'esetec') ?: 'welcome To Qeducato';
+	$variables['slider_heading_3'] = theme_get_setting('slider_heading_3', 'esetec') ?: 'Education is the best key success in life';
+	$variables['slider_desc_3'] = theme_get_setting('slider_desc_3', 'esetec') ?: 'Donec vitae libero non enim placerat eleifend aliquam erat volutpat. Curabitur diam ex, dapibus purus sapien, cursus sed nisl tristique, commodo gravida lectus non.';
+	$variables['slider_btn1_text_3'] = theme_get_setting('slider_btn1_text_3', 'esetec') ?: 'Discover More';
+	$variables['slider_btn1_link_3'] = theme_get_setting('slider_btn1_link_3', 'esetec') ?: 'a-propos';
+	$variables['slider_btn2_text_3'] = theme_get_setting('slider_btn2_text_3', 'esetec') ?: 'Contact Us';
+	$variables['slider_btn2_link_3'] = theme_get_setting('slider_btn2_link_3', 'esetec') ?: 'contact';
+
+	// 3 Service Cards
+	$variables['slider_card1_title'] = theme_get_setting('slider_card1_title', 'esetec') ?: 'Education Services';
+	$variables['slider_card1_desc'] = theme_get_setting('slider_card1_desc', 'esetec') ?: 'Seamlessly visualize quality ellectual capital without superior collaboration and idea sharing listically';
+	$variables['slider_card1_link'] = theme_get_setting('slider_card1_link', 'esetec') ?: 'a-propos';
+
+	$variables['slider_card2_title'] = theme_get_setting('slider_card2_title', 'esetec') ?: 'International Hubs';
+	$variables['slider_card2_desc'] = theme_get_setting('slider_card2_desc', 'esetec') ?: 'Seamlessly visualize quality ellectual capital without superior collaboration and idea sharing listically';
+	$variables['slider_card2_link'] = theme_get_setting('slider_card2_link', 'esetec') ?: 'a-propos';
+
+	$variables['slider_card3_title'] = theme_get_setting('slider_card3_title', 'esetec') ?: 'Bachelor’s and Master’s';
+	$variables['slider_card3_desc'] = theme_get_setting('slider_card3_desc', 'esetec') ?: 'Seamlessly visualize quality ellectual capital without superior collaboration and idea sharing listically';
+	$variables['slider_card3_link'] = theme_get_setting('slider_card3_link', 'esetec') ?: 'a-propos';
+
+	// Header
+	$variables['header_page_content_position'] = theme_get_setting('header_page_content_position', 'esetec');
+	$variables['header_topbar_show'] = theme_get_setting('header_topbar_show', 'esetec') ?? theme_get_setting('header_phone_show', 'esetec') ?? 1;
+	$variables['header_phone'] = theme_get_setting('header_phone', 'esetec') ?: theme_get_setting('header_phone_number', 'esetec') ?: '+225 00 00 00 00';
+	$variables['header_email'] = theme_get_setting('header_email', 'esetec') ?: theme_get_setting('header_email_address', 'esetec') ?: 'info@esetec.edu';
+	$variables['sticky_header_enable'] = theme_get_setting('sticky_header_enable', 'esetec') ?? theme_get_setting('sticky_header_on', 'esetec') ?? theme_get_setting('sticky_header', 'esetec') ?? 1;
+
+	// Sidebar
+	$variables['front_sidebar'] = theme_get_setting('front_sidebar', 'esetec') ?? '';
+	$variables['sidebar_width_default'] = theme_get_setting('sidebar_width_default', 'esetec') ?? '';
+	$variables['sidebar_width_left'] = theme_get_setting('sidebar_width_left', 'esetec') ?? '';
+	$variables['sidebar_width_right'] = theme_get_setting('sidebar_width_right', 'esetec') ?? '';
+
+	// Footer
+	$variables['copyright_text'] = theme_get_setting('copyright_text', 'esetec') ?? '';
+
+	// content
+	$variables['rtl'] = theme_get_setting('rtl', 'esetec') ?? '';
+
+	// Social
+	$variables['social_icons_show'] = theme_get_setting('social_icons_show', 'esetec') ?? '';
+	$variables['facebook_url'] = santise_val_url(theme_get_setting('facebook_url', 'esetec'));
+	$variables['twitter_url'] = santise_val_url(theme_get_setting('twitter_url', 'esetec'));
+	$variables['instagram_url'] = santise_val_url(theme_get_setting('instagram_url', 'esetec'));
+	$variables['linkedin_url'] = santise_val_url(theme_get_setting('linkedin_url', 'esetec'));
+	$variables['youtube_url'] = santise_val_url(theme_get_setting('youtube_url', 'esetec'));
+	$variables['vimeo_url'] = santise_val_url(theme_get_setting('vimeo_url', 'esetec'));
+  	$variables['telegram_url'] = santise_val_url(theme_get_setting('telegram_url', 'esetec'));
+  	$variables['whatsapp_url'] = santise_val_url(theme_get_setting('whatsapp_url', 'esetec'));
+  	$variables['github_url'] = santise_val_url(theme_get_setting('github_url', 'esetec'));
+	$variables['vk_url'] = santise_val_url(theme_get_setting('vk_url', 'esetec'));
+
+	// Typography
+	$variables['body_font_size'] = theme_get_setting('body_font_size', 'esetec') ?? '';
+
+	// Element -> Header menu
+	$variables['main_menu_default'] = theme_get_setting('main_menu_default', 'esetec') ?? '';
+	$variables['main_menu_top_size'] = theme_get_setting('main_menu_top_size', 'esetec') ?? '';
+	$variables['main_menu_top_weight'] = theme_get_setting('main_menu_top_weight', 'esetec') ?? '';
+	$variables['main_menu_top_transform'] = theme_get_setting('main_menu_top_transform', 'esetec') ?? '';
+	$variables['main_menu_sub_size'] = theme_get_setting('main_menu_sub_size', 'esetec') ?? '';
+	$variables['main_menu_sub_weight'] = theme_get_setting('main_menu_sub_weight', 'esetec') ?? '';
+	$variables['main_menu_sub_transform'] = theme_get_setting('main_menu_sub_transform', 'esetec') ?? '';
+	
+	// Element -> Page title
+	$variables['page_title_default'] = theme_get_setting('page_title_default', 'esetec') ?? '';
+	$variables['page_title_size'] = theme_get_setting('page_title_size', 'esetec') ?? '';
+	$variables['page_title_transform'] = theme_get_setting('page_title_transform', 'esetec') ?? '';
+
+	// Components -> Font icons
+	$variables['fontawesome_four'] = theme_get_setting('fontawesome_four', 'esetec') ?? '';
+	$variables['fontawesome_five'] = theme_get_setting('fontawesome_five', 'esetec') ?? '';
+	$variables['bootstrapicons'] = theme_get_setting('bootstrapicons', 'esetec') ?? '';
+	
+	// Components -> scroll to top
+	$variables['scrolltotop_on'] = theme_get_setting('scrolltotop_on', 'esetec') ?? '';
+	
+	// Comment
+	$variables['highlight_author_comment'] = theme_get_setting('highlight_author_comment', 'esetec') ?? '';
+}
+/**
+ * Node preprocess.
+ */
+function esetec_preprocess_node(array &$variables) {
+	$variables['node_author_pic'] = theme_get_setting('node_author_pic', 'esetec');
+	$variables['node_tags'] = theme_get_setting('node_tags', 'esetec');
+}
+
+/**
+ * Comment preprocess.
+ */
+function esetec_preprocess_comment(array &$variables) {
+	$variables['comment_user_pic'] = theme_get_setting('comment_user_pic', 'esetec');
+}
+
+/**
+ * Helper function to retrieve uploaded image URL from theme settings.
+ */
+function _esetec_get_setting_image_url($setting_name, $default_url = '') {
+  $file_setting = theme_get_setting($setting_name, 'esetec');
+  $fid = NULL;
+  if (is_array($file_setting) && !empty($file_setting[0])) {
+    $fid = $file_setting[0];
+  }
+  elseif (!empty($file_setting) && (is_numeric($file_setting) || is_string($file_setting))) {
+    $fid = $file_setting;
+  }
+  if ($fid) {
+    $file = \Drupal\file\Entity\File::load($fid);
+    if ($file) {
+      $image_uri = $file->getFileUri();
+      return \Drupal::service('file_url_generator')->generateAbsoluteString($image_uri);
+    }
+  }
+  return $default_url;
+}
+
+/**
+ * Safely preprocess breadcrumb.
+ */
+function esetec_preprocess_breadcrumb(&$variables) {
+  $request = \Drupal::request();
+  $route_match = \Drupal::routeMatch();
+  $route_object = $route_match->getRouteObject();
+  if ($route_object) {
+    $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_object);
+    if (!empty($page_title)) {
+      $title_str = is_object($page_title) || is_string($page_title) ? (string) $page_title : '';
+      if ($title_str !== '') {
+        $variables['breadcrumb'][] = [
+          'text' => $title_str,
+        ];
+        $variables['#cache']['contexts'][] = 'url';
+      }
+    }
+  }
+  $variables['breadcrumb_icon_style'] = '/';
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for block templates.
+ */
+function esetec_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  if (isset($variables['elements']['content']['#block_content'])) {
+    $block_content = $variables['elements']['content']['#block_content'];
+    $bundle = $block_content->bundle();
+    $suggestions[] = 'block__block_content__' . $bundle;
+  }
+}

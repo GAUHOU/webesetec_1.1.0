@@ -1,0 +1,114 @@
+{#
+/**
+ * @file
+ * Header : Top Bar (Optionnel) + Logo + Menu + Sticky Header conditionnel.
+ */
+#}
+<header class="header-area header-three">
+
+  {# Top Bar (Phone, Email, Socials) - Style Qeducato #}
+  {% if header_topbar_show %}
+  <div class="header-top second-header d-none d-md-block">
+    <div class="container">
+      <div class="row align-items-center">
+
+        {# Social Icons (Gauche - Bandeau Rouge #a20d35) #}
+        <div class="col-lg-4 col-md-4 d-none d-lg-block">
+          <div class="header-social">
+            <span>
+              Follow us:-
+              <a href="{{ facebook_url ?: '#' }}" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="{{ instagram_url ?: '#' }}" title="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="{{ twitter_url ?: '#' }}" title="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="{{ linkedin_url ?: '#' }}" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="{{ youtube_url ?: '#' }}" title="YouTube"><i class="fab fa-youtube"></i></a>
+            </span>
+          </div>
+        </div>
+
+        {# Contact Info (Droite - Call Now & Email Now sur fond Bleu Canard + Langue) #}
+        <div class="col-lg-8 col-md-8 d-none d-lg-block text-right">
+          <div class="header-cta">
+            <ul>
+              <li>
+                <div class="call-box">
+                  <div class="icon">
+                    <img src="{{ base_path ~ directory }}/ressources/theme/images/phone-call.png" alt="Call Now">
+                  </div>
+                  <div class="text">
+                    <span>Call Now !</span> <strong><a href="tel:{{ header_phone }}">{{ header_phone }}</a></strong>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <div class="call-box">
+                  <div class="icon">
+                    <img src="{{ base_path ~ directory }}/ressources/theme/images/mailing.png" alt="Email Now">
+                  </div>
+                  <div class="text">
+                    <span>Email Now</span> <strong><a href="mailto:{{ header_email }}">{{ header_email }}</a></strong>
+                  </div>
+                </div>
+              </li>
+
+              {# Bouton de changement de langue #}
+              <li>
+                <div class="call-box lang-box dropdown">
+                  <div class="icon">
+                    <i class="fas fa-globe" style="font-size: 22px; color: #ffffff;"></i>
+                  </div>
+                  <div class="text dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor: pointer;">
+                    <span>Langue</span> <strong>FR <i class="fas fa-chevron-down" style="font-size: 10px; margin-left: 2px;"></i></strong>
+                  </div>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item active" href="?language=fr"><i class="fas fa-check" style="font-size: 10px; margin-right: 5px;"></i> Français (FR)</a>
+                    <a class="dropdown-item" href="?language=en">English (EN)</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  {# Navigation Bar with optional Sticky Class #}
+  <div id="{% if sticky_header_enable %}header-sticky{% else %}header-normal{% endif %}" class="menu-area">
+    <div class="container">
+      <div class="row align-items-center">
+
+        {# Logo dynamique Drupal #}
+        {% if page.header %}
+        <div class="col-xl-3 col-lg-3">
+          <div class="logo">
+            {{ page.header }}
+          </div>
+        </div>
+        {% endif %}
+
+        {# Menu principal stylisé Qeducato #}
+        {% if page.primary_menu %}
+        <div class="col-xl-9 col-lg-9">
+          <div class="main-menu text-right text-xl-right">
+            <nav id="mobile-menu">
+              <div id="cssmenu" class="menu-main-menu-container">
+                {{ page.primary_menu }}
+              </div>
+            </nav>
+          </div>
+        </div>
+        {% endif %}
+
+        {# Menu mobile #}
+        <div class="col-12">
+          <div class="mobile-menu"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</header>

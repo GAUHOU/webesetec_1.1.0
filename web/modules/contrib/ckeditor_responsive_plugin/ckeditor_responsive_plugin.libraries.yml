@@ -1,0 +1,18 @@
+# This adds the plugin JavaScript to the page.
+# cSpell:ignore responsivearea
+
+responsivearea:
+  js:
+    js/build/responsiveAreaPlugin.js: { preprocess: false, minified: true }
+  css:
+    theme:
+      css/responsivearea.css: { }
+  dependencies:
+    - core/ckeditor5
+
+# Loaded in the text format configuration form to provide styling for the icon
+# used in toolbar config.
+admin.responsivearea:
+  css:
+    theme:
+      css/responsivearea.admin.css: { }

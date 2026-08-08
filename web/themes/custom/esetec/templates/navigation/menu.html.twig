@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * Theme override for main menu matching Qeducato markup.
+ */
+#}
+{% import _self as menus %}
+
+{{ menus.menu_links(items, attributes, 0) }}
+
+{% macro menu_links(items, attributes, menu_level) %}
+  {% import _self as menus %}
+  {% if items %}
+    {% if menu_level == 0 %}
+      <ul id="menu-main-menu" class="menu">
+    {% else %}
+      <ul class="sub-menu">
+    {% endif %}
+    {% for item in items %}
+      {%
+        set item_classes = [
+          'menu-item',
+          item.below ? 'menu-item-has-children has-sub',
+          item.in_active_trail ? 'active current-menu-item',
+        ]
+      %}
+      <li{{ item.attributes.addClass(item_classes) }}>
+        <a href="{{ item.url }}">{{ item.title }}</a>
+        {% if item.below %}
+          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}

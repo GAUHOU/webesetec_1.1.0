@@ -1,0 +1,11 @@
+{#
+/**
+ * @file
+ * Site branding block — logo dynamique Drupal (comme xara).
+ */
+#}
+{% if site_logo %}
+  <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+    <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
+  </a>
+{% endif %}

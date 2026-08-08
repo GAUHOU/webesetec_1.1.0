@@ -1,0 +1,59 @@
+global-styling:
+  version: 11.0.1
+  css:
+    theme:
+      ressources/polices/jost.css: {}
+      ressources/polices/roboto.css: {}
+      ressources/polices/roboto-slab.css: {}
+      ressources/theme/css/bootstrap.min.css: {}
+      ressources/theme/css/animate.min.css: {}
+      ressources/theme/css/magnific-popup.css: {}
+      ressources/theme/fontawesome/css/all.min.css: {}
+      ressources/theme/css/dripicons.css: {}
+      ressources/theme/css/slick.css: {}
+      ressources/theme/css/meanmenu.css: {}
+      ressources/theme/css/default.css: {}
+      ressources/theme/css/style.css: {}
+      ressources/theme/css/responsive.css: {}
+      ressources/styles/personnalisation.css: {}
+      ressources/styles/drupal-theme.css: {}
+  js:
+    js/slick.min.js: {}
+    ressources/scripts/litespeed/af8cc39385bfa5abe5800cd27e19570d.js: {}
+    ressources/scripts/litespeed/53f8c3eb8833b0aa9d2a412f67c79ff8.js: {}
+    ressources/scripts/litespeed/6ebec6b61eb1838a44e1cd259abfdefc.js: {}
+    ressources/scripts/litespeed/61acc60981da77ec01ff1688228524ee.js: {}
+    ressources/scripts/litespeed/06c25749f9de6539d716310aad0fce28.js: {}
+    ressources/scripts/litespeed/baf30592eab27ed636b55064bf845587.js: {}
+    ressources/scripts/litespeed/7a9811e6841ff33dc02a9b9c4ed8d3e4.js: {}
+    ressources/scripts/litespeed/08d10c28e9a0588172bc8f2dd4e1af30.js: {}
+    ressources/scripts/litespeed/efb15ff4b4077df64c65a2f80269479d.js: {}
+    js/esetec.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once
+
+# Google Fonts from local
+googlefontslocal:
+  css:
+    base:
+      css/fonts.css: {}
+
+# Theme settings page
+theme-settings:
+  version: 11.0.1
+  css:
+    theme:
+      css/theme-settings.css: {}
+
+# Slider
+slider:
+  version: 2.1.2
+  js:
+    js/slider.js: {}
+  dependencies:
+    - core/jquery
+  css:
+    component:
+      css/slider.css: {}

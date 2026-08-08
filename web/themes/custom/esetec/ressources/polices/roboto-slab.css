@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "Roboto Slab";
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: local("Roboto Slab"),
+        local("Roboto"),
+        url("../medias/elementor/google-fonts/fonts/roboto-kfo7cnqeu92fr1me7ksn66agldtyluama3yuba.woff2") format("woff2");
+}

@@ -1,0 +1,15 @@
+# Ignore Composer vendor directory
+/vendor/
+
+# Ignore Drupal uploaded files and generated caches
+/web/sites/default/files/
+/web/sites/*/files/
+
+# Ignore local settings if any
+/web/sites/*/settings.local.php
+
+# Ignore IDE files and OS junk
+.DS_Store
+.idea/
+.vscode/
+*.swp

@@ -1,0 +1,1414 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+/* =====================================================
+   EXACT 1:1 QEDUCATO TOPBAR STYLE
+   ===================================================== */
+.header-three .second-header,
+.header-top.second-header {
+    background-color: #125875 !important;
+    border: none !important;
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+    color: #ffffff !important;
+    position: relative !important;
+    z-index: 2 !important;
+    overflow: hidden !important;
+}
+
+.second-header::before,
+.header-three .second-header::before,
+.header-top.second-header::before {
+    content: "" !important;
+    height: 100% !important;
+    position: absolute !important;
+    width: calc(32% + 150px) !important;
+    background-color: var(--couleur-principale) !important;
+    top: 0 !important;
+    z-index: -1 !important;
+    left: -150px !important;
+    transform: skew(30deg) !important;
+    transform-origin: top left !important;
+}
+
+.header-social {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.header-social span {
+    color: #ffffff !important;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+}
+
+.header-social a {
+    color: #ffffff !important;
+    margin-left: 12px;
+    font-size: 16px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+/* Max 5 social icons */
+.header-social a:nth-of-type(n+6) {
+    display: none !important;
+}
+
+.header-social a i,
+.header-social a span {
+    color: #ffffff !important;
+    font-size: 16px !important;
+    display: inline-block !important;
+}
+
+.header-social a:hover {
+    color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.header-cta {
+    display: inline-block;
+}
+
+.header-cta ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.header-cta ul li {
+    display: inline-block;
+    padding-right: 15px;
+    margin-right: 15px;
+    border-right: 1px solid rgba(255, 255, 255, 0.25);
+    vertical-align: middle;
+}
+
+.header-cta ul li:last-child {
+    padding-right: 0;
+    margin-right: 0;
+    border-right: none;
+}
+
+.header-cta .call-box {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.header-cta .call-box .icon {
+    display: inline-block;
+}
+
+.header-cta .call-box .icon img {
+    width: 35px;
+    height: auto;
+    display: block;
+}
+
+.header-cta .call-box .text {
+    margin-left: 10px;
+    text-align: left;
+}
+
+.header-cta .call-box .text span {
+    display: block;
+    font-size: 12px;
+    color: #ffffff;
+    margin-bottom: -2px;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.header-cta .call-box .text strong,
+.header-cta .call-box .text strong a {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    line-height: 1.2;
+}
+
+.header-cta .call-box .text strong a:hover {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* =====================================================
+   LANGUAGE SWITCHER BUTTON (AFTER EMAIL NOW)
+   ===================================================== */
+.header-cta .lang-box {
+    position: relative;
+    cursor: pointer;
+}
+
+.header-cta .lang-box .text strong {
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+.header-cta .lang-box .dropdown-menu {
+    min-width: 140px !important;
+    background: #125875 !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 4px !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
+    padding: 6px 0 !important;
+    margin-top: 10px !important;
+}
+
+.header-cta .lang-box .dropdown-item {
+    color: #ffffff !important;
+    font-size: 12px !important;
+    padding: 6px 14px !important;
+    transition: background 0.2s ease, color 0.2s ease !important;
+}
+
+.header-cta .lang-box .dropdown-item:hover,
+.header-cta .lang-box .dropdown-item.active {
+    background: var(--couleur-principale) !important;
+    color: #ffffff !important;
+}
+
+/* =====================================================
+   EXACT QEDUCATO HOMEPAGE SLIDER & SERVICE CARDS STYLING
+   ===================================================== */
+.slider-area {
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-active {
+    background: #141b22;
+    position: relative;
+}
+
+.single-slider.slider-bg {
+    position: relative;
+    padding: 100px 0 100px !important;
+}
+
+.slider-content.s-slider-content h5 {
+    color: #ffffff !important;
+    font-size: 18px !important;
+    text-transform: uppercase !important;
+    line-height: 18px !important;
+    letter-spacing: 3px !important;
+    margin-bottom: 15px !important;
+}
+
+.slider-content.s-slider-content h5::after {
+    content: "" !important;
+    height: 2.5px !important;
+    width: 55px !important;
+    position: relative !important;
+    display: inline-block !important;
+    background: var(--couleur-principale) !important;
+    top: -5px !important;
+    left: 15px !important;
+}
+
+.slider-content.s-slider-content h2 {
+    color: #ffffff !important;
+    font-size: 65px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    margin-top: 10px !important;
+    margin-bottom: 25px !important;
+    letter-spacing: -0.5px !important;
+}
+
+.slider-content.s-slider-content p {
+    color: #ffffff !important;
+    font-size: 18px !important;
+    line-height: 1.7 !important;
+    margin-bottom: 35px !important;
+    max-width: 560px !important;
+}
+
+/* Slider Buttons — exact Qeducato style avec animation ::before au survol */
+.slider-btn .ss-btn {
+    background: var(--couleur-principale) !important;
+    color: #ffffff !important;
+    padding: 20px 30px !important;
+    border-radius: 4px !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    text-transform: capitalize !important;
+    letter-spacing: 0 !important;
+    display: inline-block !important;
+    margin-right: 15px !important;
+    transition: all 0.3s ease 0s !important;
+    text-decoration: none !important;
+    border: 1px solid var(--couleur-principale) !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Pseudo-élément ::before pour l'animation en cercle qui s'agrandit au survol */
+.slider-btn .ss-btn::before {
+    width: 40px !important;
+    height: 40px !important;
+    position: absolute !important;
+    border-radius: 50% !important;
+    content: "" !important;
+    background: #125875 !important;
+    top: -60px !important;
+    left: 10px !important;
+    z-index: -1 !important;
+    transition: all 0.3s ease 0s !important;
+}
+
+.slider-btn .ss-btn:hover::before {
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute !important;
+    border-radius: 4px !important;
+    content: "" !important;
+    background: #125875 !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: -1 !important;
+}
+
+.slider-btn .ss-btn:hover {
+    border-color: #125875 !important;
+    color: #ffffff !important;
+}
+
+/* Contact Us button — transparent avec bordure blanche */
+.slider-btn .ss-btn.active {
+    background: none !important;
+    color: #ffffff !important;
+    border: 1px solid #ffffff !important;
+    box-shadow: none !important;
+}
+
+.slider-btn .ss-btn.active:hover::before {
+    background: #ffffff !important;
+}
+
+.slider-btn .ss-btn.active:hover {
+    border-color: #ffffff !important;
+    color: #125875 !important;
+}
+
+.slider-btn .ss-btn i {
+    margin-left: 6px !important;
+    font-size: 16px !important;
+}
+
+/* Slick Arrows (Circle Prev / Next Buttons) */
+.slider-active .slick-arrow {
+    position: absolute !important;
+    top: 45% !important;
+    transform: translateY(-50%) !important;
+    left: 5% !important;
+    color: #00163b !important;
+    font-size: 20px !important;
+    line-height: 60px !important;
+    border: none !important;
+    text-align: center !important;
+    z-index: 99 !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    transition: all 0.3s ease !important;
+    width: 60px !important;
+    height: 60px !important;
+    background: #ffffff !important;
+    box-shadow: 1px 1.732px 60px 0px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 0 !important;
+}
+
+.slider-active .slick-next {
+    right: 5% !important;
+    left: auto !important;
+}
+
+.slider-active:hover .slick-prev {
+    left: 4% !important;
+    opacity: 1 !important;
+}
+
+.slider-active:hover .slick-next {
+    right: 4% !important;
+    opacity: 1 !important;
+}
+
+.slider-active .slick-arrow:hover {
+    color: #ffffff !important;
+    background: var(--couleur-principale) !important;
+}
+
+/* Service Cards bottom of slider — exact Qeducato original values */
+.service-details-two {
+    margin: 75px 0 -75px 0;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+.services-box07 {
+    background-color: rgba(18, 88, 117, 0.85) !important;
+    padding: 25px !important;
+    transition: all 0.3s ease 0s !important;
+}
+
+.services-box07:hover,
+.services-box07.active {
+    background: var(--couleur-principale) !important;
+}
+
+.services-box07 .sr-contner {
+    display: flex !important;
+}
+
+.services-box07 .sr-contner .icon {
+    width: 80px !important;
+    flex-shrink: 0 !important;
+    /* margin-right: 20px !important; */
+}
+
+.services-box07 .sr-contner .icon img {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+.services-box07 .sr-contner .text h5 {
+    font-size: 25px !important;
+    color: #ffffff !important;
+    margin-bottom: 15px !important;
+}
+
+.services-box07 .sr-contner .text h5 a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-size: 20px !important;
+}
+
+.services-box07 .sr-contner .text p {
+    margin-bottom: 10px !important;
+    color: #ffffff !important;
+}
+
+.services-box07 .sr-contner .text a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+/* =====================================================
+   LANGUAGE SWITCHER STYLING
+   ===================================================== */
+.header-lang-switcher {
+    position: relative;
+    display: inline-block;
+}
+
+.header-lang-switcher .dropdown-toggle {
+    color: #ffffff !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    cursor: pointer;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: background 0.2s ease;
+}
+
+.header-lang-switcher .dropdown-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff !important;
+}
+
+.header-lang-switcher .dropdown-toggle::after {
+    display: none !important;
+}
+
+.header-lang-switcher .fa-globe {
+    color: var(--couleur-principale, var(--couleur-principale)) !important;
+    font-size: 13px !important;
+}
+
+.header-lang-switcher .dropdown-menu {
+    min-width: 130px;
+    padding: 5px 0;
+    margin-top: 8px;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background: #ffffff;
+}
+
+.header-lang-switcher .dropdown-item {
+    font-size: 12px;
+    color: #125875;
+    padding: 6px 15px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.header-lang-switcher .dropdown-item:hover,
+.header-lang-switcher .dropdown-item.active {
+    background-color: var(--couleur-principale, var(--couleur-principale));
+    color: #ffffff !important;
+}
+
+/* =====================================================
+   LANGUAGE SWITCHER MATCHING CALL-BOX EXACTLY
+   ===================================================== */
+.lang-item .call-box .icon {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lang-item .call-box .text strong a.dropdown-toggle::after {
+    display: none !important;
+}
+
+.lang-item .dropdown-menu {
+    min-width: 130px;
+    padding: 5px 0;
+    margin-top: 8px;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background: #ffffff;
+}
+
+.lang-item .dropdown-item {
+    font-size: 12px;
+    color: #125875;
+    padding: 6px 15px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.lang-item .dropdown-item:hover,
+.lang-item .dropdown-item.active {
+    background-color: var(--couleur-principale, var(--couleur-principale));
+    color: #ffffff !important;
+}
+
+/* =====================================================
+   QEDUCATO HOMEPAGE SLIDER & FEATURE CARDS STYLING
+   ===================================================== */
+.slider-area {
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-content h5 {
+    color: #ffffff !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    letter-spacing: 3px !important;
+    text-transform: uppercase !important;
+    margin-bottom: 15px !important;
+    line-height: 18px !important;
+}
+
+.slider-content h2 {
+    color: #ffffff !important;
+    font-size: 56px !important;
+    font-weight: 700 !important;
+    margin-top: 15px !important;
+    margin-bottom: 20px !important;
+    line-height: 1.2 !important;
+}
+
+.slider-content p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 16px !important;
+    margin-bottom: 35px !important;
+    max-width: 540px !important;
+}
+
+.ss-btn {
+    background: var(--couleur-principale) !important;
+    color: #ffffff !important;
+    padding: 15px 30px !important;
+    border-radius: 5px !important;
+    font-weight: 600 !important;
+    display: inline-block !important;
+    text-transform: uppercase !important;
+    border: 2px solid var(--couleur-principale) !important;
+    transition: all 0.3s ease-in-out !important;
+}
+
+.ss-btn:hover,
+.ss-btn.active {
+    background: #125875 !important;
+    border-color: #125875 !important;
+    color: #ffffff !important;
+}
+
+.services-box07 {
+    transition: all 0.3s ease 0s !important;
+}
+
+/* =====================================================
+   EXACT QEDUCATO SLIDER & 3 CARDS CSS
+   ===================================================== */
+.slider-area {
+    position: relative;
+    overflow: hidden;
+    background: #141b22 !important;
+}
+
+.slider-bg {
+    min-height: 0 !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    display: block !important;
+}
+
+.slider-content.s-slider-content {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.slider-content h5 {
+    color: #ffffff !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px !important;
+    text-transform: uppercase !important;
+    margin-bottom: 15px !important;
+    line-height: 18px !important;
+    font-family: 'Jost', sans-serif !important;
+}
+
+.slider-content h2 {
+    color: #ffffff !important;
+    font-size: 62px !important;
+    font-weight: 700 !important;
+    margin-top: 15px !important;
+    margin-bottom: 25px !important;
+    line-height: 1.15 !important;
+    font-family: 'Jost', sans-serif !important;
+}
+
+.slider-content p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 16px !important;
+    line-height: 28px !important;
+    margin-bottom: 35px !important;
+    max-width: 550px !important;
+}
+
+.slider-btn .ss-btn {
+    background: var(--couleur-principale) !important;
+    color: #ffffff !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    padding: 18px 36px !important;
+    border-radius: 4px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    display: inline-block !important;
+    transition: all 0.3s ease-in-out !important;
+    border: 2px solid var(--couleur-principale) !important;
+    margin-right: 15px !important;
+}
+
+.slider-btn .ss-btn.active {
+    background: transparent !important;
+    border-color: #ffffff !important;
+    color: #ffffff !important;
+}
+
+.slider-btn .ss-btn:hover,
+.slider-btn .ss-btn.active:hover {
+    background: var(--couleur-principale) !important;
+    border-color: var(--couleur-principale) !important;
+    color: #ffffff !important;
+}
+
+.slider-btn .ss-btn.mr-15:hover {
+    background: #125875 !important;
+    border-color: #125875 !important;
+    color: #ffffff !important;
+}
+
+.services-box07 {
+    padding: 25px !important;
+    border-radius: 0 !important;
+    transition: all 0.3s ease 0s !important;
+}
+
+/* =====================================================
+   QEDUCATO SLIDER ORANGE LINE & SLICK CAROUSEL ARROWS
+   ===================================================== */
+.slider-content h5 {
+    color: #ffffff !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px !important;
+    text-transform: uppercase !important;
+    margin-bottom: 15px !important;
+    line-height: 18px !important;
+    font-family: 'Jost', sans-serif !important;
+    position: relative !important;
+    display: inline-block !important;
+}
+
+.slider-content h5::after {
+    content: "" !important;
+    height: 2px !important;
+    width: 55px !important;
+    position: relative !important;
+    display: inline-block !important;
+    background: var(--couleur-principale) !important;
+    top: -5px !important;
+    left: 15px !important;
+}
+
+.slider-active .slick-arrow {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 99 !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    font-size: 18px !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.slider-active .slick-prev {
+    left: 30px !important;
+}
+
+.slider-active .slick-next {
+    right: 30px !important;
+}
+
+.slider-active .slick-arrow:hover {
+    background: var(--couleur-principale) !important;
+    border-color: var(--couleur-principale) !important;
+    color: #ffffff !important;
+}
+
+/* =====================================================
+   100% EXACT MATCH QEDUCATO SLIDER & OVERLAPPING CARDS
+   ===================================================== */
+.slider-area {
+    position: relative;
+    overflow: hidden;
+    background: #141b22 !important;
+}
+
+.single-slider.slider-bg {
+    min-height: calc(100vh - 100px) !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    display: flex !important;
+    align-items: center !important;
+    /* min-height: 750px !important; */
+    /* padding: 160px 0 240px 0 !important; */
+}
+
+.slider-content h5 {
+    color: #ffffff !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px !important;
+    text-transform: uppercase !important;
+    margin-bottom: 15px !important;
+    line-height: 18px !important;
+    font-family: 'Jost', sans-serif !important;
+    position: relative !important;
+    display: inline-block !important;
+}
+
+.slider-content h5::after {
+    content: "" !important;
+    height: 2px !important;
+    width: 55px !important;
+    position: relative !important;
+    display: inline-block !important;
+    background: var(--couleur-principale) !important;
+    top: -5px !important;
+    left: 15px !important;
+}
+
+.slider-content h2 {
+    color: #ffffff !important;
+    font-size: 62px !important;
+    font-weight: 700 !important;
+    margin-top: 15px !important;
+    margin-bottom: 25px !important;
+    line-height: 1.15 !important;
+    font-family: 'Jost', sans-serif !important;
+}
+
+.slider-content p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 16px !important;
+    line-height: 28px !important;
+    margin-bottom: 35px !important;
+    max-width: 550px !important;
+}
+
+/* ===== BOUTONS SLIDER — correspondance exacte avec l'original Qeducato ===== */
+.slider-btn .ss-btn {
+    background: var(--couleur-principale) !important;
+    color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    padding: 20px 30px !important;
+    border-radius: 4px !important;
+    text-transform: capitalize !important;
+    letter-spacing: 0 !important;
+    display: inline-block !important;
+    transition: all 0.3s ease 0s !important;
+    border: 1px solid var(--couleur-principale) !important;
+    margin-right: 15px !important;
+    position: relative !important;
+    z-index: 1 !important;
+    overflow: hidden !important;
+}
+
+/* Bouton "Contact Us" — transparent avec bordure blanche, comme l'original */
+.slider-btn .ss-btn.active {
+    background: none !important;
+    color: #ffffff !important;
+    border: 1px solid #ffffff !important;
+    box-shadow: none !important;
+}
+
+.slider-btn .ss-btn:hover {
+    border-color: #125875 !important;
+    color: #ffffff !important;
+}
+
+.slider-btn .ss-btn.active:hover {
+    border-color: #ffffff !important;
+    color: #125875 !important;
+}
+
+/* White Circular Arrows */
+.slider-active .slick-arrow {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 99 !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    background: #ffffff !important;
+    color: #141b22 !important;
+    border: none !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15) !important;
+    font-size: 18px !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.slider-active .slick-prev {
+    left: 40px !important;
+}
+
+.slider-active .slick-next {
+    right: 40px !important;
+}
+
+.slider-active .slick-arrow:hover {
+    background: var(--couleur-principale) !important;
+    color: #ffffff !important;
+}
+
+/* Overlapping 3 Cards */
+.service-details-two {
+        margin: 75px 0 -75px 0;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.services-box07 {
+    background-color: rgba(18, 88, 117, 0.85) !important;
+    padding: 25px !important;
+    border-radius: 0 !important;
+    transition: all 0.3s ease 0s !important;
+}
+
+.services-box07:hover,
+.services-box07.active {
+    background: var(--couleur-principale) !important;
+}
+
+.services-box07 .sr-contner {
+    display: flex !important;
+}
+
+.services-box07 .sr-contner .icon {
+    width: 50px !important;
+    flex-shrink: 0 !important;
+    /* margin-right: 20px !important; */
+}
+
+.services-box07 .sr-contner .icon img {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+.services-box07 .sr-contner .text h5 {
+    font-size: 25px !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    margin-bottom: 15px !important;
+    font-family: 'Jost', sans-serif !important;
+}
+
+.services-box07 .sr-contner .text h5 a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-size: 20px !important;
+}
+
+.services-box07 .sr-contner .text p {
+    margin-bottom: 10px !important;
+    color: #ffffff !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    text-align: justify !important;
+}
+
+.services-box07 .sr-contner .text a {
+    font-family: 'Jost', sans-serif !important;
+    color: #ffffff !important;
+    font-size: 14px !important;
+    text-decoration: none !important;
+}
+
+@media (min-width: 1170px) {
+    .container {
+        max-width: 1320px !important;
+    }
+}
+
+
+/* =====================================================
+   CORRECTIFS FINAUX — CORRESPONDANCE EXACTE IMAGE 3
+   ===================================================== */
+
+/* Garantir que les liens dans les cartes de service restent blancs */
+.services-box07 .sr-contner .text a,
+.services-box07 .sr-contner .text a:hover,
+.services-box07 .sr-contner .text h5 a,
+.services-box07 .sr-contner .text h5 a:hover {
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+/* ===================================================================
+   SLIDER — proportions correctes (hauteur contrôlée par padding)
+   =================================================================== */
+.slider-bg,
+.single-slider.slider-bg {
+    min-height: 0 !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    position: relative !important;
+    z-index: 1 !important;
+    display: block !important;
+    /* padding: 120px 0 260px 0 !important; */
+}
+
+/* Contenu slider — margin géré par le padding du slider-bg */
+.slider-content.s-slider-content {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* ===================================================================
+   ICÔNES DES CARTES — remplir toute la colonne de 138px
+   =================================================================== */
+.services-box07 .sr-contner .icon {
+    width: 50px !important;
+    flex-shrink: 0 !important;
+    /* min-width: 100px !important; */
+    /* margin-right: 20px !important; */
+    /* display: flex !important;
+    align-items: center !important; */
+}
+
+/* Étirer les images d'icône pour remplir les 138px */
+.services-box07 .sr-contner .icon img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+}
+
+/* ===================================================================
+   CHEVAUCHEMENT CORRECT DES CARTES SUR LE SLIDER
+   =================================================================== */
+.service-details-two {
+        margin: 75px 0 -75px 0;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+/* Le slider-area ne doit PAS clipper les cartes qui chevauchent */
+.slider-area {
+    overflow: visible !important;
+}
+
+.highlighted>.container {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* ===================================================================
+   SECTION ABOUT OUR UNIVERSITY — REPRODUCTION EXACTE DE L'IMAGE 2 ET 3
+   =================================================================== */
+.about-area {
+    position: relative !important;
+    padding-top: 100px !important;
+    padding-bottom: 100px !important;
+    background-color: #f2f7fd !important; /* Fond bleu tres clair glace */
+    font-family: 'Jost', sans-serif !important;
+}
+
+/* Filigrane d'architecture en bas a droite de la section */
+.about-area::after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    width: 480px !important;
+    height: 260px !important;
+    background-image: url('../medias/2023/02/an-img-02.png') !important;
+    background-repeat: no-repeat !important;
+    background-position: bottom right !important;
+    background-size: contain !important;
+    opacity: 0.18 !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+}
+
+/* --- COLONNE GAUCHE (Images & Boite "25 + Years of Experience") --- */
+.s-about-img {
+    position: relative !important;
+    display: block !important;
+    z-index: 1 !important;
+}
+
+.s-about-img .field--name-field-mots-sur-l-universite-gauc .field-item {
+    position: relative !important;
+    display: block !important;
+}
+
+/* Boite "25 + Years of Experience" */
+.s-about-img .field--name-field-mots-sur-l-universite-gauc .field-item > .ckeditor-col-container:first-child,
+.s-about-img .about-text {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    width: 270px !important;
+    background: var(--couleur-principale) !important;
+    padding: 25px 20px !important;
+    border-radius: 14px !important;
+    border-bottom: 4px solid #132c40 !important; /* Bordure inferieure bleu marine */
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.12) !important;
+    text-align: center !important;
+    z-index: 10 !important;
+    margin: 0 !important;
+}
+
+.s-about-img .field--name-field-mots-sur-l-universite-gauc .field-item > .ckeditor-col-container:first-child::after,
+.s-about-img .about-text::after {
+    display: none !important;
+}
+
+.s-about-img .field--name-field-mots-sur-l-universite-gauc .field-item > .ckeditor-col-container:first-child h2,
+.s-about-img .about-text span {
+    font-size: 44px !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    font-family: 'Jost', sans-serif !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+    display: inline-block !important;
+}
+
+.s-about-img .field--name-field-mots-sur-l-universite-gauc .field-item > .ckeditor-col-container:first-child p,
+.s-about-img .about-text p {
+    font-size: 15px !important;
+    color: #ffffff !important;
+    margin-top: 6px !important;
+    margin-bottom: 0 !important;
+    font-weight: 500 !important;
+    font-family: 'Jost', sans-serif !important;
+}
+
+/* Image principale de la colonne gauche */
+.s-about-img .field--name-field-mots-sur-l-universite-gauc .field-item > .ckeditor-col-container:nth-child(2) img,
+.s-about-img img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 20px !important;
+    display: block !important;
+}
+
+
+/* --- COLONNE DROITE (Contenu Texte — Style Exact Image 2 & 3) --- */
+.s-about-content {
+    padding-left: 35px !important;
+    z-index: 1 !important;
+    position: relative !important;
+}
+
+/* Suppression des marges parasites entre h5 et h2 */
+.s-about-content .about-title.second-title {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* 1. Sous-titre avec icone "About Our University" */
+.about-title.second-title h5,
+.s-about-content h5 {
+    color: var(--couleur-principale) !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    font-family: 'Jost', sans-serif !important;
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+}
+
+.about-title.second-title h5 i,
+.s-about-content h5 i {
+    color: var(--couleur-principale) !important;
+    font-size: 18px !important;
+}
+
+/* 2. Titre principal "A Few Words About the University" */
+.field--name-field-mots-sur-l-universite-droi .field-item > h2,
+.about-title.second-title h2,
+.s-about-content h2 {
+    font-size: 44px !important;
+    font-weight: 800 !important;
+    font-family: 'Jost', sans-serif !important;
+    color: #132c40 !important; /* Bleu marine tres fonce */
+    margin-top: 0 !important;
+    margin-bottom: 22px !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.5px !important;
+}
+
+/* 3. Premier paragraphe (Texte bleu moyen mis en valeur) */
+.field--name-field-mots-sur-l-universite-droi .field-item > p:first-of-type,
+.field--name-field-mots-sur-l-universite-droi .field-item > p:first-of-type strong,
+.s-about-content p.txt-clr {
+    color: #356283 !important;
+    font-size: 17px !important;
+    line-height: 28px !important;
+    font-weight: 500 !important;
+    font-family: 'Jost', sans-serif !important;
+    margin-bottom: 15px !important;
+    display: block !important;
+}
+
+/* 4. Deuxieme paragraphe (Texte grisatre) */
+.field--name-field-mots-sur-l-universite-droi .field-item > p:nth-of-type(2),
+.s-about-content p {
+    color: #6f8298 !important;
+    font-size: 15px !important;
+    line-height: 26px !important;
+    font-weight: 400 !important;
+    font-family: 'Jost', sans-serif !important;
+    margin-bottom: 30px !important;
+}
+
+/* 5. Grille horizontale des 2 items "Doctoral Degrees" et "Global Students" */
+.field--name-field-mots-sur-l-universite-droi .field-item > div,
+.about-content2 .green2,
+.about-content2 ul {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 35px !important;
+    margin-top: 20px !important;
+    margin-bottom: 35px !important;
+    counter-reset: about-counter !important;
+    list-style: none !important;
+    padding: 0 !important;
+}
+
+.field--name-field-mots-sur-l-universite-droi .field-item > div > div,
+.about-content2 li,
+.about-content2 .abcontent {
+    flex: 1 !important;
+    position: relative !important;
+    padding-left: 68px !important;
+    counter-increment: about-counter !important;
+    margin-bottom: 0 !important;
+    display: block !important;
+}
+
+/* Rond parfait 01 / 02 en couleur principale */
+.field--name-field-mots-sur-l-universite-droi .field-item > div > div::before,
+.about-content2 .ano,
+.s-about-content .ano {
+    content: "0" counter(about-counter) !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 2px !important;
+    width: 50px !important;
+    height: 50px !important;
+    background: var(--couleur-principale) !important;
+    border-radius: 50% !important;
+    color: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    font-family: 'Jost', sans-serif !important;
+}
+
+.field--name-field-mots-sur-l-universite-droi .field-item > div > div h4,
+.field--name-field-mots-sur-l-universite-droi .field-item > div > div h3,
+.about-content2 .text h3 {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    font-family: 'Jost', sans-serif !important;
+    color: #132c40 !important;
+    margin-bottom: 6px !important;
+    padding-top: 0 !important;
+}
+
+.field--name-field-mots-sur-l-universite-droi .field-item > div > div p,
+.about-content2 .text p {
+    font-size: 14px !important;
+    line-height: 22px !important;
+    color: #6f8298 !important;
+    font-family: 'Jost', sans-serif !important;
+    margin: 0 !important;
+}
+
+/* 6. Bouton Read More bleu marine */
+.field--name-field-mots-sur-l-universite-droi .field-item > p:last-child,
+.s-about-content .slider-btn {
+    margin-top: 30px !important;
+    margin-bottom: 0 !important;
+}
+
+.field--name-field-mots-sur-l-universite-droi .field-item > p:last-child a,
+.s-about-content a.btn {
+    background: #132c40 !important; /* Bleu marine fonce */
+    color: #ffffff !important;
+    padding: 15px 34px !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    font-family: 'Jost', sans-serif !important;
+    text-transform: none !important;
+    text-decoration: none !important;
+    border: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    z-index: 1 !important;
+    transition: all 0.3s ease !important;
+}
+
+.field--name-field-mots-sur-l-universite-droi .field-item > p:last-child a::after,
+.s-about-content a.btn::after {
+    content: " \2192" !important;
+    font-size: 18px !important;
+    line-height: 1 !important;
+}
+
+.field--name-field-mots-sur-l-universite-droi .field-item > p:last-child a:hover,
+.s-about-content a.btn:hover {
+    background: var(--couleur-principale) !important;
+    color: #ffffff !important;
+}
+
+/* ==========================================================================
+   SECTION & BLOC "NOS MEILLEURS ATOUTS" / "POURQUOI NOUS CHOISIR" (QEDUCATO 1:1 REPLICA)
+   ========================================================================== */
+
+#block-esetec-nosmeilleursatouts,
+.steps-area {
+    position: relative !important;
+    background-color: #032e3f !important;
+    width: 100% !important;
+    padding-top: 100px !important;
+    padding-bottom: 100px !important;
+    overflow: hidden !important;
+    font-family: 'Jost', sans-serif !important;
+}
+
+.steps-area .animations-10 {
+    position: absolute !important;
+    top: 5% !important;
+    left: 2% !important;
+    z-index: 1 !important;
+    opacity: 0.15 !important;
+    pointer-events: none !important;
+}
+
+.steps-area .container {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* 1. Titre principal ("Pourquoi nous choisir") */
+.steps-area .field--name-field-nos-meilleurs-atouts .field-item > h1,
+.steps-area .field--name-field-nos-meilleurs-atouts .field-item > h2,
+#block-esetec-nosmeilleursatouts h1,
+#block-esetec-nosmeilleursatouts h2 {
+    color: #ffffff !important;
+    font-size: 38px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    margin-top: 0 !important;
+    margin-bottom: 15px !important;
+    font-family: 'Jost', sans-serif !important;
+}
+
+/* 2. Paragraphe principal de description ("Étudier chez nous...") */
+.steps-area .field--name-field-nos-meilleurs-atouts .field-item > p,
+#block-esetec-nosmeilleursatouts .field--name-field-nos-meilleurs-atouts .field-item > p {
+    color: #96bece !important;
+    font-size: 17px !important;
+    line-height: 1.6 !important;
+    margin-bottom: 40px !important;
+    font-family: 'Jost', sans-serif !important;
+}
+
+/* 3. CONTENEURS EXTERNES DE GRILLE : Forcer un bloc vertical simple (PAS DE FLEX / PAS DE GRID) */
+.steps-area .field--name-field-nos-meilleurs-atouts .field-item,
+.steps-area .field--name-field-nos-meilleurs-atouts .field-item > .ckeditor-col-container,
+.steps-area .field--name-field-nos-meilleurs-atouts .field-item > .ckeditor-col-container > .grid-12 {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    float: none !important;
+    clear: both !important;
+}
+
+/* 4. CHAQUE ATOUT INDIVIDUEL (Conteneur d'item interne) */
+.steps-area .ckeditor-col-container .ckeditor-col-container {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 0 35px 0 !important;
+    padding: 0 !important;
+    float: none !important;
+    clear: both !important;
+}
+
+/* 5. CSS GRID UNIQUE pour l'atout interne (Col 1 = Icône 75px, Col 2 = Titre & Texte) */
+.steps-area .ckeditor-col-container .ckeditor-col-container > .grid-12 {
+    display: grid !important;
+    grid-template-columns: 75px 1fr !important;
+    grid-template-rows: auto auto !important;
+    column-gap: 25px !important;
+    row-gap: 6px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    float: none !important;
+    align-items: start !important;
+}
+
+/* Badge rond de l'icône rouge/orange à gauche */
+.steps-area .ckeditor-col-container .ckeditor-col-container > .grid-12 > h1,
+.steps-area .ckeditor-col-container .ckeditor-col-container > .grid-12 > .dnumber,
+.steps-area .ckeditor-col-container .ckeditor-col-container > .grid-12 > .date-box {
+    grid-column: 1 !important;
+    grid-row: 1 / span 2 !important;
+    width: 75px !important;
+    height: 75px !important;
+    min-width: 75px !important;
+    max-width: 75px !important;
+    border-radius: 50% !important;
+    background-color: var(--couleur-principale, #ff7350) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    color: #ffffff !important;
+    font-size: 30px !important;
+    line-height: 1 !important;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Titre de l'atout (h3) */
+.steps-area .ckeditor-col-container .ckeditor-col-container > .grid-12 > h3 {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    color: #ffffff !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.3 !important;
+    font-family: 'Jost', sans-serif !important;
+    align-self: end !important;
+}
+
+/* Description de l'atout (p) */
+.steps-area .ckeditor-col-container .grid-12 > p,
+.steps-area .ckeditor-col-container .ckeditor-col-container > .grid-12 > p {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    color: #96bece !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: 'Jost', sans-serif !important;
+}
+
+/* 6. Image de la colonne droite (step-img) */
+.steps-area .step-img,
+.steps-area .field--name-field-nos-meilleurs-atouts-image {
+    position: relative !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+
+.steps-area .step-img img,
+.steps-area .field--name-field-nos-meilleurs-atouts-image img {
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 15px !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+    display: inline-block !important;
+}
+
+
+

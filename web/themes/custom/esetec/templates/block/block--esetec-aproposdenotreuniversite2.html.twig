@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Template override pour le bloc À propos de notre université (Qeducato Design).
+ */
+#}
+<section id="{{ plugin_id }}" class="about-area about-p pt-120 pb-120 p-relative fix">
+  <div class="animations-02">
+    <img src="{{ base_path ~ directory ~ '/ressources/medias/2023/02/an-img-02.png' }}" alt="animation image">
+  </div>
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      
+      {# Colonne Gauche (Image & Badge 25+ d'expérience) #}
+      <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="s-about-img p-relative">
+          {{ content.field_mots_sur_l_universite_gauc }}
+        </div>
+      </div>
+
+      {# Colonne Droite (Textes & Cartes) #}
+      <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="about-content s-about-content pl-15">
+          <div class="about-title second-title pb-25">
+            {% if label %}
+              <h5{{ title_attributes }}><i class="fal fa-graduation-cap"></i> {{ label }}</h5>
+            {% endif %}
+          </div>
+          {{ content.field_mots_sur_l_universite_droi }}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

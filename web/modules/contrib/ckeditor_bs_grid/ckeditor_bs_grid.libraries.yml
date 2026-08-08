@@ -1,0 +1,17 @@
+dialog:
+  css:
+    component:
+      css/dialog.css: { minified: true }
+      css/grid.css: { minified: true }
+
+cke5.admin:
+  css:
+    theme:
+      css/cke5-admin.css: { }
+
+cke5.bsgrid:
+  js:
+    js/build/bootstrapGrid.js: { minified: true }
+  dependencies:
+    - ckeditor5/ckeditor5
+    - ckeditor_bs_grid/dialog
