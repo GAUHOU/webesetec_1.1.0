@@ -301,22 +301,17 @@ class ModulesListForm extends FormBase {
     // Generate link for module's configuration page, if it has one.
     if ($module->status && isset($module->info['configure'])) {
       $route_parameters = $module->info['configure_parameters'] ?? [];
-      try {
-        if ($this->accessManager->checkNamedRoute($module->info['configure'], $route_parameters, $this->currentUser)) {
-          $row['links']['configure'] = [
-            '#type' => 'link',
-            '#title' => $this->t('Configure <span class="visually-hidden">@module</span>', ['@module' => $module->info['name']]),
-            '#url' => Url::fromRoute($module->info['configure'], $route_parameters),
-            '#options' => [
-              'attributes' => [
-                'class' => ['module-link', 'module-link-configure'],
-              ],
+      if ($this->accessManager->checkNamedRoute($module->info['configure'], $route_parameters, $this->currentUser)) {
+        $row['links']['configure'] = [
+          '#type' => 'link',
+          '#title' => $this->t('Configure <span class="visually-hidden">@module</span>', ['@module' => $module->info['name']]),
+          '#url' => Url::fromRoute($module->info['configure'], $route_parameters),
+          '#options' => [
+            'attributes' => [
+              'class' => ['module-link', 'module-link-configure'],
             ],
-          ];
-        }
-      }
-      catch (\Symfony\Component\Routing\Exception\RouteNotFoundException $e) {
-        // Route does not exist or has not been built yet.
+          ],
+        ];
       }
     }
 

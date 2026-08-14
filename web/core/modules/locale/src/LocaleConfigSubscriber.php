@@ -123,7 +123,6 @@ class LocaleConfigSubscriber implements EventSubscriberInterface {
    *   override but still in the active configuration.
    */
   public function updateLocaleStorage(StorableConfigBase $config, $langcode, array $reference_config = []) {
-    include_once \Drupal::root() . '/core/modules/locale/locale.module';
     $name = $config->getName();
     if ($this->localeConfigManager->isSupported($name) && locale_is_translatable($langcode)) {
       $translatables = $this->localeConfigManager->getTranslatableDefaultConfig($name);

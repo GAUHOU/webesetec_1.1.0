@@ -25,18 +25,15 @@ class RequestContext extends SymfonyRequestContext {
    *   The current request stack.
    */
   public function fromRequestStack(RequestStack $request_stack) {
-    if ($request = $request_stack->getCurrentRequest()) {
-      $this->fromRequest($request);
-    }
+    $this->fromRequest($request_stack->getCurrentRequest());
   }
 
   /**
    * {@inheritdoc}
    */
-  public function fromRequest(?Request $request): static {
-    if (!$request) {
-      return $this;
-    }
+  public function fromRequest(Request $request): static {
+    // @todo Extract the code in DrupalKernel::initializeRequestGlobals.
+    //   See https://www.drupal.org/node/2404601
     if (isset($GLOBALS['base_url'])) {
       $this->setCompleteBaseUrl($GLOBALS['base_url']);
     }

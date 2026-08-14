@@ -199,7 +199,7 @@ class FormattableMarkup implements MarkupInterface, \Countable {
           // on it prior to passing it in as a placeholder value of this type.
           // @todo Add some advice and stronger warnings.
           //   https://www.drupal.org/node/2569041.
-          $args[$key] = Html::escape((string) $value);
+          $args[$key] = Html::escape($value);
           break;
 
         case '%':
@@ -235,7 +235,7 @@ class FormattableMarkup implements MarkupInterface, \Countable {
    *   The properly escaped replacement value.
    */
   protected static function placeholderEscape($value) {
-    return $value instanceof MarkupInterface ? (string) $value : Html::escape((string) $value);
+    return $value instanceof MarkupInterface ? (string) $value : Html::escape($value);
   }
 
 }
