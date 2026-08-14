@@ -3865,7 +3865,7 @@ section:hover .section-title h2::before {
 
 .step-img {
     margin-right: -302px;
-    background: #fff;
+    /* background: #fff; */
     padding-bottom: 30px;
 }
 
@@ -4953,7 +4953,7 @@ section:hover .section-title h2::before {
 }
 
 .counter-area .row div:nth-child(4) .single-counter {
-    display: ;
+    /* display: ; */
     border-right: none;
 }
 
@@ -8064,7 +8064,7 @@ li.has-sub.has-mega-menu:hover>ul>li>ul {
     width: 100%;
 }
 
-.sidebar-widget .widget li.page_item_has_children,
+.sidebar-widget .widget li.page_item_has_children
     {
     padding-bottom: 0;
 }
@@ -10531,7 +10531,7 @@ p.checkout-coupon input[type="text"] {
 
 .project-detail .upper-box {
     position: relative;
-    margin-bottom: 40px;
+    margin-bottom: 25px;
 }
 
 .project-detail .upper-box .image {
@@ -10770,12 +10770,12 @@ p.checkout-coupon input[type="text"] {
 .project-detail .info-column .inner-column3 {
     border-radius: 8px;
     background-color: rgb(255, 255, 255);
-    box-shadow: 5px 8.66px 58px 0px rgba(0, 0, 0, 0.08);
+    /* box-shadow: 5px 8.66px 58px 0px rgba(0, 0, 0, 0.08); */
+    /* padding-bottom: 30px; */
     overflow: hidden;
-    padding-bottom: 30px;
     border: 1px solid #e3e3e3;
     position: sticky;
-    top: 67px;
+    top: 85px;
 }
 
 .project-detail .info-column .inner-column3 .footer-social a {
@@ -13345,7 +13345,7 @@ div.single-cta:last-child {
 }
 
 .logo {
-    width: 90px;
+    width: 75px !important;
 }
 
 .logo a {
@@ -13698,5 +13698,8 @@ blockquote cite {
     font-weight: 500;
 }
 
-
+.container {
+    padding-right: var(--bs-gutter-x, .15rem) !important;
+    padding-left: var(--bs-gutter-x, .15rem) !important;
+}
 

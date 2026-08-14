@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Fields template for "nos_cours" block_1 matching Qeducato 1:1 course card.
+ */
+#}
+{% set node_entity = row._entity %}
+{% set course_url = path('entity.node.canonical', {'node': node_entity.id}) %}
+
+<div class="courses-item mb-30 hover-zoomin">
+  <div class="thumb fix">
+    <a href="{{ course_url }}">
+      {% if fields.field_image_cours.content %}
+        {{ fields.field_image_cours.content }}
+      {% else %}
+        <img src="/webesetec_1.1.0/web/themes/custom/esetec/ressources/medias/2023/03/couress-img-1.jpg" alt="{{ node_entity.label }}">
+      {% endif %}
+    </a>
+  </div>
+  <div class="courses-content">
+    <div class="cat">
+      <i class="fas fa-graduation-cap"></i>
+      {% if fields.field_type_de_formations.content and fields.field_type_de_formations.content|render|striptags|trim != '' %}
+        {{ fields.field_type_de_formations.content|render|striptags|trim }}
+      {% elseif node_entity.field_type_de_formations.entity %}
+        {{ node_entity.field_type_de_formations.entity.label }}
+      {% else %}
+        BTS / Formation
+      {% endif %}
+    </div>
+    <h3><a href="{{ course_url }}">{{ node_entity.label }}</a></h3>
+    {% if fields.field_description_du_cours.content %}
+      <div class="course-desc">
+        {{ fields.field_description_du_cours.content }}
+      </div>
+    {% endif %}
+    <a href="{{ course_url }}" class="readmore">En savoir plus <i class="fas fa-long-arrow-right"></i></a>
+  </div>
+  <div class="icon">
+    <img src="/webesetec_1.1.0/web/themes/custom/esetec/ressources/medias/2023/02/cou-icon.png" alt="icon">
+  </div>
+</div>

@@ -1,0 +1,13 @@
+{#
+/**
+ * @file
+ * Unformatted rows template for "nos_formations" block_1 (Max 2 columns layout).
+ */
+#}
+<div class="row">
+  {% for row in rows %}
+    <div class="col-lg-6 col-md-6 col-sm-12 mb-30 wow fadeInUp animated" data-animation="fadeInUp" data-delay=".4s">
+      {{ row.content }}
+    </div>
+  {% endfor %}
+</div>

@@ -1,0 +1,113 @@
+{#
+/**
+ * @file
+ * Block template for "block-esetec-nosperformances" (1:1 cta-area with background image cta_bg1.png and cta-bg-overlay).
+ */
+#}
+<section id="block-esetec-nosperformances" class="cta-area cta-bg pt-120 pb-120 p-relative fix">
+  <!-- Image d'arrière-plan cta_bg1.png (Qeducato 1:1) -->
+  <div class="cta-bg-img">
+    <img src="/webesetec_1.1.0/web/themes/custom/esetec/ressources/medias/2023/03/cta_bg1.png" alt="ESETEC Performance Background">
+  </div>
+
+  <!-- Overlay bleu sombre cta-bg-overlay (rgba(18, 88, 117, 0.75)) -->
+  <div class="cta-bg-overlay"></div>
+
+  <div class="container p-relative" style="z-index: 3;">
+    <!-- Left-aligned Section Title (Same wrapper style as nos-cours) -->
+    <div class="row align-items-center mb-40">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="section-title wow fadeInDown animated" data-animation="fadeInDown" data-delay=".4s">
+          <h5><i class="fas fa-graduation-cap"></i> ESETEC PERFORMANCES</h5>
+          <h2>{{ label ?? 'Nos performances' }}</h2>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Block Content (Performance Cards Grid with 30px clear gap) -->
+    <div class="block-content">
+      {{ content }}
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var perfBlock = document.getElementById('block-esetec-nosperformances');
+  if (!perfBlock) return;
+
+  // Add Progress Bars dynamically to each card
+  var gridCards = perfBlock.querySelectorAll('.grid-12');
+  gridCards.forEach(function(card) {
+    var h1 = card.querySelector('h1');
+    if (h1 && !card.querySelector('.perf-progress-track')) {
+      var valStr = h1.innerText.replace(',', '.').replace(/[^0-9.]/g, '');
+      var val = parseFloat(valStr) || 0;
+      if (val > 100) val = 100;
+      
+      var barWrap = document.createElement('div');
+      barWrap.className = 'perf-progress-track';
+      var barFill = document.createElement('div');
+      barFill.className = 'perf-progress-fill';
+      barFill.setAttribute('data-target-width', val + '%');
+      barWrap.appendChild(barFill);
+      card.appendChild(barWrap);
+    }
+  });
+
+  // Animated Counter Function
+  function animateCounter(el) {
+    var text = el.innerText.trim();
+    var match = text.match(/([0-9]+[.,]?[0-9]*)/);
+    if (!match) return;
+    
+    var targetNum = parseFloat(match[1].replace(',', '.'));
+    var suffix = text.replace(match[0], '');
+    var isComma = match[1].indexOf(',') !== -1;
+    var decimals = match[1].split(/[.,]/)[1] ? match[1].split(/[.,]/)[1].length : 0;
+    
+    var duration = 1800;
+    var startTime = null;
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var progress = Math.min((timestamp - startTime) / duration, 1);
+      var current = progress * targetNum;
+      
+      var formatted = current.toFixed(decimals);
+      if (isComma) formatted = formatted.replace('.', ',');
+      
+      el.innerText = formatted + suffix;
+      
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
+    }
+    window.requestAnimationFrame(step);
+  }
+
+  // Intersection Observer for Scroll Animation
+  var observer = new IntersectionObserver(function(entries, obs) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        // Animate H1 numbers
+        var h1Elements = entry.target.querySelectorAll('h1');
+        h1Elements.forEach(function(h1) {
+          animateCounter(h1);
+        });
+
+        // Animate Progress Bars
+        var fillElements = entry.target.querySelectorAll('.perf-progress-fill');
+        fillElements.forEach(function(fill) {
+          var targetWidth = fill.getAttribute('data-target-width');
+          fill.style.width = targetWidth;
+        });
+
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  observer.observe(perfBlock);
+});
+</script>

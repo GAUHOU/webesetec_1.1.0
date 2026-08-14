@@ -1,0 +1,82 @@
+{#
+/**
+ * @file
+ * Block template for "nos_cours" block_1 matching Qeducato 1:1 "Our Courses (Graduate Programs)".
+ */
+#}
+<section id="block-esetec-views-block-nos-cours-block-1" class="courses pt-120 pb-90 p-relative">
+  <div class="animations-01">
+    <img src="/webesetec_1.1.0/web/themes/custom/esetec/ressources/medias/2023/02/an-img-03.png" alt="animation">
+  </div>
+  <div class="container">
+    <div class="row align-items-center mb-40">
+      <div class="col-lg-8 col-md-8 col-sm-12">
+        <div class="section-title wow fadeInDown animated" data-animation="fadeInDown" data-delay=".4s">
+          <h5><i class="fas fa-graduation-cap"></i> Nos filières</h5>
+          <h2>Programmes d'études supérieures</h2>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-12 text-right text-md-right d-none d-md-block">
+        <div class="courses-nav-arrows">
+          <button type="button" class="course-slick-prev" aria-label="Précédent"><i class="fas fa-angle-left"></i></button>
+          <button type="button" class="course-slick-next" aria-label="Suivant"><i class="fas fa-angle-right"></i></button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="block-content">
+      {{ content }}
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  function initEsetecCoursesSlider() {
+    if (window.jQuery && window.jQuery.fn && window.jQuery.fn.slick) {
+      var $ = window.jQuery;
+      var $slider = $('.esetec-courses-carousel');
+      
+      if ($slider.length) {
+        if (!$slider.hasClass('slick-initialized')) {
+          var itemCount = $slider.children().length;
+          if (itemCount > 0 && itemCount <= 4) {
+            $slider.children().clone().appendTo($slider);
+          }
+
+          $slider.slick({
+            dots: false,
+            infinite: true,
+            arrows: false,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            speed: 600,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            responsive: [
+              { breakpoint: 1200, settings: { slidesToShow: 3 } },
+              { breakpoint: 992, settings: { slidesToShow: 2 } },
+              { breakpoint: 576, settings: { slidesToShow: 1 } }
+            ]
+          });
+        }
+
+        $(document).off('click.esetecPrev', '.course-slick-prev').on('click.esetecPrev', '.course-slick-prev', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          $('.esetec-courses-carousel').slick('slickPrev');
+        });
+
+        $(document).off('click.esetecNext', '.course-slick-next').on('click.esetecNext', '.course-slick-next', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          $('.esetec-courses-carousel').slick('slickNext');
+        });
+      }
+    } else {
+      setTimeout(initEsetecCoursesSlider, 100);
+    }
+  }
+  initEsetecCoursesSlider();
+});
+</script>

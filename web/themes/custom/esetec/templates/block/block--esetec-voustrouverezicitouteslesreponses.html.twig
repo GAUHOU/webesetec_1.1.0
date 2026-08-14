@@ -1,0 +1,148 @@
+{#
+/**
+ * @file
+ * Template override for "Vous trouverez ici toutes les réponses" (Qeducato FAQ Area 1:1).
+ */
+#}
+<section id="block-esetec-voustrouverezicitouteslesreponses" class="faq-area pt-120 pb-120 p-relative fix">
+  <div class="animations-10"><img decoding="async" src="/webesetec_1.1.0/web/themes/custom/esetec/ressources/medias/2023/03/an-img-04.png" alt="an-img-04"></div>
+  <div class="animations-08"><img decoding="async" src="/webesetec_1.1.0/web/themes/custom/esetec/ressources/medias/2023/03/an-img-05.png" alt="an-img-05"></div>
+  <div class="container">
+    <div class="row align-items-center">
+
+      {# Colonne Gauche : Titre et Accordéon FAQ #}
+      <div class="col-lg-7">
+        <div class="section-title wow fadeInLeft animated" data-animation="fadeInDown animated" data-delay=".2s">
+          <h2>Vous trouverez ici toutes les réponses.</h2>
+          <p>Une entreprise ou une organisation créée pour fournir un service particulier, généralement un service qui implique l'organisation de transactions.</p>
+        </div>
+
+        <div class="faq-wrap mt-30 pr-30 wow fadeInUp animated" data-animation="fadeInUp" data-delay=".4s">
+          <div class="accordion" id="accordionEsetecFaq">
+
+            <div class="card">
+              <div class="card-header">
+                <h2 class="mb-0">
+                  <button class="faq-btn" type="button" data-bs-toggle="collapse" data-bs-target="#faq-item-1" aria-expanded="true">
+                    01 Cras turpis felis, elementum sed mi at arcu ?
+                  </button>
+                </h2>
+              </div>
+              <div id="faq-item-1" class="collapse show" data-bs-parent="#accordionEsetecFaq" style="display: block;">
+                <div class="card-body">
+                  Notre communauté est appelée à repenser l'avenir. Seule université à réunir une école de design de renom et des établissements d'enseignement supérieur de premier plan, nous rendons l'apprentissage plus pertinent et transformateur. La diversité de nos formations est une véritable richesse.
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h2 class="mb-0">
+                  <button class="faq-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-item-2" aria-expanded="false">
+                    02 Vestibulum nibh risus, in neque eleifendulputate sem ?
+                  </button>
+                </h2>
+              </div>
+              <div id="faq-item-2" class="collapse" data-bs-parent="#accordionEsetecFaq" style="display: none;">
+                <div class="card-body">
+                  Notre communauté est appelée à repenser l'avenir. Seule université à réunir une école de design de renom et des établissements d'enseignement supérieur de premier plan, nous rendons l'apprentissage plus pertinent et transformateur. La diversité de nos formations est une véritable richesse.
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h2 class="mb-0">
+                  <button class="faq-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-item-3" aria-expanded="false">
+                    03 Donec maximus, sapien id auctor ornare ?
+                  </button>
+                </h2>
+              </div>
+              <div id="faq-item-3" class="collapse" data-bs-parent="#accordionEsetecFaq" style="display: none;">
+                <div class="card-body">
+                  Notre communauté est appelée à repenser l'avenir. Seule université à réunir une école de design de renom et des établissements d'enseignement supérieur de premier plan, nous rendons l'apprentissage plus pertinent et transformateur. La diversité de nos formations est une véritable richesse.
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h2 class="mb-0">
+                  <button class="faq-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-item-4" aria-expanded="false">
+                    04 Vestibulum nibh risus, in neque eleifendulputate sem ?
+                  </button>
+                </h2>
+              </div>
+              <div id="faq-item-4" class="collapse" data-bs-parent="#accordionEsetecFaq" style="display: none;">
+                <div class="card-body">
+                  Notre communauté est appelée à repenser l'avenir. Seule université à réunir une école de design de renom et des établissements d'enseignement supérieur de premier plan, nous rendons l'apprentissage plus pertinent et transformateur. La diversité de nos formations est une véritable richesse.
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h2 class="mb-0">
+                  <button class="faq-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-item-5" aria-expanded="false">
+                    05 Donec maximus, sapien id auctor ornare ?
+                  </button>
+                </h2>
+              </div>
+              <div id="faq-item-5" class="collapse" data-bs-parent="#accordionEsetecFaq" style="display: none;">
+                <div class="card-body">
+                  Notre communauté est appelée à repenser l'avenir. Seule université à réunir une école de design de renom et des établissements d'enseignement supérieur de premier plan, nous rendons l'apprentissage plus pertinent et transformateur. La diversité de nos formations est une véritable richesse.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {# Colonne Droite : Image #}
+      <div class="col-lg-5">
+        <div class="faq-img-box text-center wow fadeInRight animated" data-animation="fadeInRight" data-delay=".4s">
+          {% if content.field_image_de_reponses_question %}
+            {{ content.field_image_de_reponses_question }}
+          {% else %}
+            <img src="/webesetec_1.1.0/web/sites/default/files/2026-08/reponse-question.png" alt="Vous trouverez ici toutes les réponses" class="img-fluid">
+          {% endif %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var accordionButtons = document.querySelectorAll('#accordionEsetecFaq .faq-btn');
+  accordionButtons.forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var targetId = btn.getAttribute('data-bs-target');
+      var targetEl = document.querySelector(targetId);
+      var isCollapsed = btn.classList.contains('collapsed');
+
+      var allButtons = document.querySelectorAll('#accordionEsetecFaq .faq-btn');
+      var allCollapses = document.querySelectorAll('#accordionEsetecFaq .collapse');
+      
+      allButtons.forEach(function (b) {
+        b.classList.add('collapsed');
+        b.setAttribute('aria-expanded', 'false');
+      });
+      allCollapses.forEach(function (c) {
+        c.classList.remove('show');
+        c.style.display = 'none';
+      });
+
+      if (isCollapsed && targetEl) {
+        btn.classList.remove('collapsed');
+        btn.setAttribute('aria-expanded', 'true');
+        targetEl.classList.add('show');
+        targetEl.style.display = 'block';
+      }
+    });
+  });
+});
+</script>

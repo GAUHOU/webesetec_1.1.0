@@ -1,0 +1,145 @@
+{#
+/**
+ * @file
+ * Template implementation for "nos_formations" content type.
+ * Dynamic database image in hero section + floating/sticky sidebar card.
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node-type-nos-formations',
+    'node-view-mode-' ~ view_mode|clean_class,
+    'project-detail',
+    'pt-40',
+    'pb-90',
+  ]
+%}
+<article{{ attributes.addClass(classes) }}>
+  <div class="container">
+    
+    <!-- Hero / Full Width Featured Image Section -->
+    <div class="upper-box-container p-relative mb-40">
+      <div class="upper-box full-width-hero">
+        <figure class="image mb-0">
+          {% set hero_image_src = null %}
+          {% if node.field_image and node.field_image.entity %}
+            {% set hero_image_src = file_url(node.field_image.entity.uri.value) %}
+          {% elseif node.field_image_de_la_formation and node.field_image_de_la_formation.entity %}
+            {% set hero_image_src = file_url(node.field_image_de_la_formation.entity.uri.value) %}
+          {% endif %}
+
+          {% if hero_image_src %}
+            <img src="{{ hero_image_src }}" alt="{{ node.label }}" class="img-fluid w-100 dynamic-hero-img">
+          {% else %}
+            <img id="formation-hero-dynamic-img" src="" alt="{{ node.label }}" class="img-fluid w-100 dynamic-hero-img" style="display:none;">
+          {% endif %}
+        </figure>
+      </div>
+    </div>
+
+    <!-- Main Content & Sticky Sidebar Area -->
+    <div class="lower-content">
+      <div class="row">
+        
+        <!-- Left Column: Main Course / Formation Content -->
+        <div class="text-column col-lg-8 col-md-12">
+          <div class="inner-column formation-main-info">
+            {{ content.field_information_de_la_formatio }}
+          </div>
+        </div>
+
+        <!-- Right Column: Sticky Sidebar Card Overlapping Top Image -->
+        <div class="col-lg-4 col-md-12">
+          <aside class="sidebar-widget info-column floating-hero-card sticky-sidebar-card">
+            <div class="inner-column3">
+              <h3>Caractéristiques de la formation</h3>
+
+              {% set type_formation = node.field_type_de_formations.value|trim %}
+              {% if type_formation %}
+                <div class="course-type-box">
+                  <div class="course-type-badge">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div>
+                      <strong class="course-type-val">{{ type_formation }}</strong>
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+
+              {% if content.field_caracteristiques_de_la_for|render|trim %}
+                <div class="course-features-wrapper">
+                  {{ content.field_caracteristiques_de_la_for[0] ?? content.field_caracteristiques_de_la_for }}
+                </div>
+              {% endif %}
+            </div>
+          </aside>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</article>
+
+<script>
+(function() {
+  function initDynamicFormationImage() {
+    var heroImg = document.getElementById('formation-hero-dynamic-img');
+    var mainInfo = document.querySelector('.node-type-nos-formations .formation-main-info');
+    
+    if (heroImg && mainInfo) {
+      var embeddedImg = mainInfo.querySelector('img');
+      if (embeddedImg && embeddedImg.src) {
+        heroImg.src = embeddedImg.src;
+        if (embeddedImg.alt) heroImg.alt = embeddedImg.alt;
+        heroImg.style.display = 'block';
+      }
+    }
+  }
+
+  function initStickyCard() {
+    var card = document.querySelector('.node-type-nos-formations .sticky-sidebar-card');
+    var container = document.querySelector('.node-type-nos-formations .lower-content .col-lg-4');
+    if (!card || !container) return;
+
+    var menuOffset = 100;
+
+    function checkScroll() {
+      if (window.innerWidth < 992) {
+        card.classList.remove('is-fixed-under-menu');
+        card.style.left = '';
+        card.style.width = '';
+        return;
+      }
+
+      var rect = container.getBoundingClientRect();
+      if (rect.top <= (menuOffset + 150)) {
+        if (!card.classList.contains('is-fixed-under-menu')) {
+          card.classList.add('is-fixed-under-menu');
+        }
+        card.style.left = rect.left + 'px';
+        card.style.width = rect.width + 'px';
+      } else {
+        card.classList.remove('is-fixed-under-menu');
+        card.style.left = '';
+        card.style.width = '';
+      }
+    }
+
+    window.addEventListener('scroll', checkScroll, { passive: true });
+    window.addEventListener('resize', checkScroll, { passive: true });
+    checkScroll();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      initDynamicFormationImage();
+      initStickyCard();
+    });
+  } else {
+    initDynamicFormationImage();
+    initStickyCard();
+  }
+})();
+</script>

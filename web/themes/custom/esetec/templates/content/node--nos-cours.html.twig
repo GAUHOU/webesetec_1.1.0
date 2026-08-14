@@ -1,0 +1,59 @@
+{#
+/**
+ * @file
+ * Template implementation for "nos_cours" content type matching Qeducato 1:1 project-detail layout.
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node-type-nos-cours',
+    'node-view-mode-' ~ view_mode|clean_class,
+    'project-detail',
+    'pt-40',
+    'pb-90',
+  ]
+%}
+<article{{ attributes.addClass(classes) }}>
+  <div class="container">
+    <div class="lower-content">
+      <div class="row">
+        
+        <!-- Left Column: Main Course Content -->
+        <div class="text-column col-lg-8 col-md-8 col-sm-12 wow fadeInLeft animated" data-animation="fadeInLeft" data-delay=".2s">
+          <div class="inner-column">
+            {{ content.field_information_du_cours }}
+          </div>
+        </div>
+
+        <!-- Right Column: Sidebar Course Features -->
+        <div class="col-lg-4 col-md-4 col-sm-12 wow fadeInRight animated" data-animation="fadeInRight" data-delay=".4s">
+          <aside class="sidebar-widget info-column">
+            <div class="inner-column3">
+              <h3 class="sidebar-card-title">Caractéristiques du cours</h3>
+
+              {% set type_formation = node.field_type_de_formations.value|trim %}
+              {% if type_formation %}
+                <div class="course-type-box">
+                  <div class="course-type-badge">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div>
+                      <strong class="course-type-val">{{ type_formation }}</strong>
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+
+              {% if content.field_caracteristiques_du_cours|render|trim %}
+                <div class="course-features-wrapper">
+                  {{ content.field_caracteristiques_du_cours[0] ?? content.field_caracteristiques_du_cours }}
+                </div>
+              {% endif %}
+            </div>
+          </aside>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * Fields template for "nos_formations" block_1 matching Qeducato 1:1 event-item (Our Events).
+ */
+#}
+{% set node_entity = row._entity %}
+{% set formation_url = path('entity.node.canonical', {'node': node_entity.id}) %}
+
+<div class="event-item mb-30 hover-zoomin">
+  <div class="thumb">
+    <a href="{{ formation_url }}">
+      {% if fields.field_image_formation.content %}
+        {{ fields.field_image_formation.content }}
+      {% elseif fields.field_image.content %}
+        {{ fields.field_image.content }}
+      {% else %}
+        <img src="/webesetec_1.1.0/web/themes/custom/esetec/ressources/medias/2023/03/evn-img-1.jpg" alt="{{ node_entity.label }}">
+      {% endif %}
+    </a>
+  </div>
+  <div class="event-content">
+    <div class="date graduation-cap-badge">
+      <i class="fas fa-graduation-cap"></i>
+    </div>
+    <h3><a href="{{ formation_url }}">{{ node_entity.label }}</a></h3>
+    {% if fields.field_description_de_la_formatio.content %}
+      <div class="event-desc">
+        {{ fields.field_description_de_la_formatio.content }}
+      </div>
+    {% endif %}
+    <div class="time">
+      <a href="{{ formation_url }}">En savoir plus <i class="fas fa-long-arrow-alt-right"></i></a>
+    </div>
+  </div>
+</div>

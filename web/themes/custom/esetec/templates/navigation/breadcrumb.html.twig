@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Theme override for a breadcrumb trail in Esetec theme.
+ */
+#}
+{% if breadcrumb %}
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+    {% for item in breadcrumb %}
+      <li class="breadcrumb-item{% if loop.last %} active{% endif %}">
+        {% if item.url and not loop.last %}
+          <a href="{{ item.url }}">{{ item.text }}</a>
+        {% else %}
+          <span>{{ item.text }}</span>
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ol>
+  </nav>
+{% endif %}

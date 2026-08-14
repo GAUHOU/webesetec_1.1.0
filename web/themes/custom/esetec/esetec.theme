@@ -58,12 +58,61 @@ function esetec_preprocess_html(&$variables) {
 		$variables['page']['#title'] = _esetec_sanitize_translatable_markup($variables['page']['#title']);
 	}
 }
+
+/**
+ * Keeps the editable "Nos meilleurs atouts" block fresh for every request.
+ *
+ * Its text and image are managed as block-content fields.  Disabling only this
+ * render cache prevents a stale fragment from being shown after an editor saves
+ * a new value, without affecting caches for the rest of the site.
+ */
+function esetec_preprocess_block(array &$variables): void {
+  if (($variables['plugin_id'] ?? '') !== 'block_content:33735641-c7a1-4fc5-94bc-34b6e86eb67e') {
+    return;
+  }
+
+  $variables['elements']['#cache']['max-age'] = 0;
+  $variables['content']['#cache']['max-age'] = 0;
+}
+
+function esetec_preprocess_breadcrumb(array &$variables): void {
+  if (empty($variables['breadcrumb'])) {
+    return;
+  }
+  
+  $unique_breadcrumb = [];
+  $seen_texts = [];
+  
+  foreach ($variables['breadcrumb'] as $item) {
+    $text = trim(is_string($item['text'] ?? '') ? $item['text'] : (string) ($item['text'] ?? ''));
+    if ($text === '') {
+      continue;
+    }
+    $lower = mb_strtolower($text);
+    if (!isset($seen_texts[$lower])) {
+      $seen_texts[$lower] = true;
+      $unique_breadcrumb[] = $item;
+    }
+  }
+  
+  $variables['breadcrumb'] = $unique_breadcrumb;
+}
+
 function esetec_preprocess_page(array &$variables) {
 	if (isset($variables['title'])) {
 		$variables['title'] = _esetec_sanitize_translatable_markup($variables['title']);
 	}
 	if (isset($variables['page']['#title'])) {
 		$variables['page']['#title'] = _esetec_sanitize_translatable_markup($variables['page']['#title']);
+	}
+	$request = \Drupal::request();
+	$route_match = \Drupal::routeMatch();
+	$route_object = $route_match->getRouteObject();
+	if ($route_object) {
+		$title_res = \Drupal::service('title_resolver')->getTitle($request, $route_object);
+		if (!empty($title_res)) {
+			$variables['page_title'] = (string) $title_res;
+		}
 	}
 	// theme path
 	$variables['esetec_path'] = \Drupal::service('extension.list.theme')->getPath('esetec');
@@ -219,27 +268,7 @@ function _esetec_get_setting_image_url($setting_name, $default_url = '') {
   return $default_url;
 }
 
-/**
- * Safely preprocess breadcrumb.
- */
-function esetec_preprocess_breadcrumb(&$variables) {
-  $request = \Drupal::request();
-  $route_match = \Drupal::routeMatch();
-  $route_object = $route_match->getRouteObject();
-  if ($route_object) {
-    $page_title = \Drupal::service('title_resolver')->getTitle($request, $route_object);
-    if (!empty($page_title)) {
-      $title_str = is_object($page_title) || is_string($page_title) ? (string) $page_title : '';
-      if ($title_str !== '') {
-        $variables['breadcrumb'][] = [
-          'text' => $title_str,
-        ];
-        $variables['#cache']['contexts'][] = 'url';
-      }
-    }
-  }
-  $variables['breadcrumb_icon_style'] = '/';
-}
+
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter() for block templates.
