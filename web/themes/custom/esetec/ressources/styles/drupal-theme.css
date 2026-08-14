@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap');
+
 
 /* =====================================================
    EXACT 1:1 QEDUCATO TOPBAR STYLE
@@ -3355,7 +3356,7 @@ section.courses {
     padding: 32px 20px 28px 20px !important;
     text-align: center !important;
     transition: transform 0.4s ease, background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease !important;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
+    /* box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important; */
     position: relative !important;
     height: 100% !important;
     display: flex !important;
@@ -3369,7 +3370,7 @@ section.courses {
 #block-esetec-nosperformances .ckeditor-col-container .grid-12:hover {
     transform: translateY(-8px) !important;
     background: rgba(255, 255, 255, 0.18) !important;
-    border-color: var(--couleur-principale, #a20d35) !important;
+    border-color: var(--couleur-principale, #ffffff) !important;
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3) !important;
 }
 
@@ -3474,25 +3475,29 @@ section.courses {
     box-sizing: border-box !important;
 }
 
-/* H1 / Title Styling */
-#block-esetec-admission .field--name-field-contenu-du-bloc .field-item > .ckeditor-col-container:nth-child(2) h1 {
-    font-size: 38px !important;
-    font-weight: 800 !important;
-    color: #1e293b !important;
+/* H1 / Title Styling (Qeducato Jost 50px Font 1:1) */
+#block-esetec-admission .field--name-field-contenu-du-bloc .field-item > .ckeditor-col-container:nth-child(2) h1,
+#block-esetec-admission .field--name-field-contenu-du-bloc .field-item > .ckeditor-col-container:nth-child(2) h2 {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 50px !important;
+    font-weight: 700 !important;
+    color: #141b22 !important;
     line-height: 1.2 !important;
     margin-bottom: 20px !important;
-    font-family: 'Jost', sans-serif !important;
+    letter-spacing: -0.5px !important;
 }
 
-/* Paragraph Text Styling */
+/* Paragraph Text Styling (Qeducato Roboto 16px Font & #6e6e6e color 1:1) */
 #block-esetec-admission .field--name-field-contenu-du-bloc .field-item > .ckeditor-col-container:nth-child(2) p {
+    font-family: 'Roboto', sans-serif !important;
     font-size: 16px !important;
-    line-height: 1.8 !important;
-    color: #64748b !important;
+    line-height: 28px !important;
+    color: #6e6e6e !important;
+    font-weight: 400 !important;
     margin-bottom: 20px !important;
 }
 
-/* List Styling with Red Check Icons */
+/* List Styling (Qeducato Roboto 15px Font & #6e6e6e color 1:1) */
 #block-esetec-admission .field--name-field-contenu-du-bloc .field-item > .ckeditor-col-container:nth-child(2) ul {
     list-style: none !important;
     padding-left: 0 !important;
@@ -3501,10 +3506,12 @@ section.courses {
 }
 
 #block-esetec-admission .field--name-field-contenu-du-bloc .field-item > .ckeditor-col-container:nth-child(2) ul li {
+    font-family: 'Roboto', sans-serif !important;
     font-size: 15px !important;
-    color: #334155 !important;
-    line-height: 1.6 !important;
-    margin-bottom: 14px !important;
+    font-weight: 400 !important;
+    color: #6e6e6e !important;
+    line-height: 26px !important;
+    margin-bottom: 12px !important;
     position: relative !important;
     padding-left: 32px !important;
 }
@@ -3520,17 +3527,19 @@ section.courses {
     font-size: 17px !important;
 }
 
-/* Action Link / Button (Qeducato Button Style) */
+/* Action Link / Button (Qeducato Jost 14px Uppercase Button 1:1) */
 #block-esetec-admission .field--name-field-contenu-du-bloc .field-item > .ckeditor-col-container:nth-child(2) p:last-child a,
 #block-esetec-admission .field--name-field-contenu-du-bloc .field-item > .ckeditor-col-container:nth-child(2) a.btn {
+    font-family: 'Jost', sans-serif !important;
     background-color: var(--couleur-principale, #a20d35) !important;
     color: #ffffff !important;
     padding: 16px 36px !important;
     border-radius: 5px !important;
     font-weight: 700 !important;
     font-size: 14px !important;
+    letter-spacing: 0.5px !important;
     display: inline-block !important;
-    text-transform: capitalize !important;
+    text-transform: uppercase !important;
     text-decoration: none !important;
     transition: all 0.3s ease !important;
     box-shadow: 0 8px 20px rgba(162, 13, 53, 0.25) !important;
@@ -3558,6 +3567,7 @@ section.courses {
 #block-esetec-admission .field--name-field-contenu-du-bloc .field-item > .ckeditor-col-container:nth-child(2) a.btn:hover::after {
     transform: translateX(5px) !important;
 }
+
 
 /* Responsive queries */
 @media (max-width: 991px) {
