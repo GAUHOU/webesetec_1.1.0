@@ -147,6 +147,11 @@ class ApiAdapter {
   }
 
   private function generateToken(): string {
+    $accessKey = (string) ($this->settingsConfigHandler->getAccessKey() ?? '');
+    if (empty($accessKey)) {
+      return '';
+    }
+
     $payload = [
       'aud' => $this->settingsConfigHandler->getEnvironmentId(),
       'iat' => time(),
@@ -158,7 +163,8 @@ class ApiAdapter {
       ],
     ];
 
-    return JWT::encode($payload, $this->settingsConfigHandler->getAccessKey(), 'HS512');
+    return JWT::encode($payload, $accessKey, 'HS512');
   }
+
 
 }

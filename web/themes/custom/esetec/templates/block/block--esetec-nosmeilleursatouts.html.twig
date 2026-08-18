@@ -6,7 +6,7 @@
 #}
 <section id="{{ plugin_id }}" class="steps-area p-relative fix" style="background-color: #032e3f;">
   <div class="animations-10">
-    <img src="{{ base_path ~ directory ~ '/ressources/medias/2023/03/an-img-10.png' }}" alt="animation image">
+    <img src="{{ '/webesetec_1.1.0/web/' ~ directory ~ '/ressources/medias/2023/03/an-img-10.png' }}" alt="animation image">
   </div>
   <div class="container">
     <div class="row align-items-center">
@@ -27,4 +27,7 @@
 
     </div>
   </div>
+
+  {# Transmet les métadonnées et cache tags Drupal pour l'invalidation automatique après modification admin #}
+  {{ content|without('field_nos_meilleurs_atouts', 'field_nos_meilleurs_atouts_image') }}
 </section>

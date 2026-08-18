@@ -1,157 +1,47 @@
 {#
 /**
  * @file
- * Template implementation for ESETEC Footer (Qeducato 1:1).
+ * Template implementation for Esetec Theme Footer.
  */
 #}
-<footer class="footer-bg footer-p pt-90">
-  <div class="footer-top pb-70 p-relative">
-    <!-- Lines background -->
-    <div class="content-lines-wrapper2">
-      <div class="content-lines-inner2">
-        <div class="content-lines2"></div>
-      </div>
-    </div>
-
+<footer class="site-footer footer">
+{% if page.footer_top %}
+  {% include '@thex/template-parts/footer/footer-top.html.twig' %}
+{% endif %}
+{% if page.footer_one or page.footer_two or page.footer_three or page.footer_four %}
+  {% include '@thex/template-parts/footer/footer-blocks.html.twig' %}
+{% endif %}
+{% if page.footer_bottom_left or page.footer_bottom_right %}
+  {% include '@thex/template-parts/footer/footer-bottom-blocks.html.twig' %}
+{% endif %}
+{% if copyright_text or page.footer_bottom_last %}
+  <footer class="footer-bottom footer">
     <div class="container">
-      <div class="row justify-content-between">
-        
-        <!-- Column 1: About ESETEC -->
-        <div class="col-xl-4 col-lg-4 col-sm-6 redux-footer">
-          {% if page.footer_one %}
-            {{ page.footer_one }}
-          {% else %}
-            <ul class="footer-widget weight mb-30">
-              <li class="widget_text widget widget_custom_html">
-                <h2 class="widgettitle">À propos de l'ESETEC</h2>
-                <div class="textwidget custom-html-widget">
-                  <div class="f-contact">
-                    <p>L'ESETEC (École Supérieure des Enseignements Techniques et Technologiques) forme des ingénieurs et techniciens supérieurs qualifiés dans les filières d'avenir.</p>
-                  </div>
-                  <div class="footer-social mt-10">
-                    <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          {% endif %}
+      <div class="footer-bottom-container">
+        {% if copyright_text %}
+          {% include '@thex/template-parts/footer/footer-copyright.html.twig' %}
+        {% endif %}
+        {% include '@thex/template-parts/footer/footer-bottom-last.html.twig' %}
+      {% if social_icons_show %}
+        <div class="footer-social">
+          {% include '@esetec/template-parts/social-icons.html.twig' %}
         </div>
-
-        <!-- Column 2: Quick Links -->
-        <div class="col-xl-2 col-lg-2 col-sm-6 redux-footer">
-          {% if page.footer_two %}
-            {{ page.footer_two }}
-          {% else %}
-            <ul class="footer-widget f-menu-content footer-link mb-30">
-              <li class="widget widget_nav_menu">
-                <h2 class="widgettitle">Nos liens</h2>
-                <div class="menu-our-links-container">
-                  <ul class="menu">
-                    <li><a href="/webesetec_1.1.0/web/">Accueil</a></li>
-                    <li><a href="/webesetec_1.1.0/web/a-propos">À propos</a></li>
-                    <li><a href="/webesetec_1.1.0/web/ingenieures">Formations</a></li>
-                    <li><a href="/webesetec_1.1.0/web/actualites">Actualités</a></li>
-                    <li><a href="/webesetec_1.1.0/web/contact">Contact</a></li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          {% endif %}
-        </div>
-
-        <!-- Column 3: Latest News / Formations -->
-        <div class="col-xl-3 col-lg-3 col-sm-6 redux-footer">
-          {% if page.footer_three %}
-            {{ page.footer_three }}
-          {% else %}
-            <ul class="footer-widget f-menu-content footer-link mb-30">
-              <li class="widget_text widget widget_custom_html">
-                <h2 class="widgettitle">Dernières Actualités</h2>
-                <div class="textwidget custom-html-widget">
-                  <div class="recent-blog-footer">
-                    <ul>
-                      <li>
-                        <div class="thum"><a href="/webesetec_1.1.0/web/actualites"><img src="{{ base_path ~ directory }}/ressources/medias/2023/03/s-blogimg-01.png" alt="ESETEC News"></a></div>
-                        <div class="text">
-                          <a href="/webesetec_1.1.0/web/actualites">Rentrée académique à l'ESETEC</a>
-                          <span>2026</span>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="thum"><a href="/webesetec_1.1.0/web/actualites"><img src="{{ base_path ~ directory }}/ressources/medias/2023/03/s-blogimg-02.png" alt="ESETEC News"></a></div>
-                        <div class="text">
-                          <a href="/webesetec_1.1.0/web/actualites">Résultats exceptionnels au BTS</a>
-                          <span>2026</span>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          {% endif %}
-        </div>
-
-        <!-- Column 4: Contact Us -->
-        <div class="col-xl-3 col-lg-3 col-sm-6 redux-footer">
-          {% if page.footer_four %}
-            {{ page.footer_four }}
-          {% else %}
-            <ul class="footer-widget weight footer-link mb-30">
-              <li class="widget_text widget widget_custom_html">
-                <h2 class="widgettitle">Contactez-nous</h2>
-                <div class="textwidget custom-html-widget">
-                  <div class="f-contact">
-                    <ul>
-                      <li>
-                        <i class="icon fal fa-phone"></i>
-                        <span><a href="tel:+2250700000000">+225 07 00 00 00 00</a><br><a href="tel:+2252700000000">+225 27 00 00 00 00</a></span>
-                      </li>
-                      <li>
-                        <i class="icon fal fa-envelope"></i>
-                        <span>
-                          <a href="mailto:info@esetec.ci">info@esetec.ci</a><br>
-                          <a href="mailto:contact@esetec.ci">contact@esetec.ci</a>
-                        </span>
-                      </li>
-                      <li>
-                        <i class="icon fal fa-map-marker-check"></i>
-                        <span>Abidjan, Côte d'Ivoire</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          {% endif %}
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- Copyright Wrap -->
-  <div class="copyright-wrap">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-4">
-          <div class="copy-text">
-            <a href="/webesetec_1.1.0/web/">
-              <img src="/webesetec_1.1.0/web/sites/default/files/logo-trp_2.png" alt="ESETEC" style="max-height: 45px;" onerror="this.onerror=null; this.src='{{ base_path ~ directory }}/ressources/medias/2023/03/f_logo.png';">
-            </a>
-          </div>
-        </div>
-        <div class="col-lg-4 text-center">
-        </div>
-        <div class="col-lg-4 text-right text-xl-right">
-          Copyright © ESETEC 2026. Tous droits réservés.
-        </div>
-      </div>
-    </div>
-  </div>
+      {% endif %}
+      </div><!-- /footer-bottom-container -->
+    </div><!-- /container -->
+  </footer><!-- /footer-bottom -->
+{% endif %}
 </footer>
-
-<div class="scrolltop" id="scrollUp"><i class="fal fa-level-up-alt"></i></div>
+{% if scrolltotop_on %}
+  <div class="scrolltop"><i class="icon-arrow-up"></i></div>
+{% endif %}
+{% include '@esetec/template-parts/style.html.twig' %}
+{% if fontawesome_four %}
+  {{ attach_library('thex/fontawesome4') }}
+{% endif %}
+{% if fontawesome_five %}
+  {{ attach_library('thex/fontawesome5') }}
+{% endif %}
+{% if bootstrapicons %}
+  {{ attach_library('thex/bootstrap-icons') }}
+{% endif %}

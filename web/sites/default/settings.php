@@ -886,3 +886,7 @@ ini_set('log_errors', TRUE);
 // Hide deprecation and debug messages from displaying on the UI
 $config['system.logging']['error_level'] = 'hide';
 error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
+
+// Ensure instant live updates from Database when blocks or nodes are modified in Drupal Admin
+$config['system.performance']['cache']['page']['max_age'] = 0;
+

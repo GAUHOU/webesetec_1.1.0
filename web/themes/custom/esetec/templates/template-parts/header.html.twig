@@ -33,7 +33,7 @@
               <li>
                 <div class="call-box">
                   <div class="icon">
-                    <img src="{{ base_path ~ directory }}/ressources/theme/images/phone-call.png" alt="Call Now">
+                    <img src="{{ '/webesetec_1.1.0/web/' ~ directory }}/ressources/theme/images/phone-call.png" alt="Call Now">
                   </div>
                   <div class="text">
                     <span>Call Now !</span> <strong><a href="tel:{{ header_phone }}">{{ header_phone }}</a></strong>
@@ -44,7 +44,7 @@
               <li>
                 <div class="call-box">
                   <div class="icon">
-                    <img src="{{ base_path ~ directory }}/ressources/theme/images/mailing.png" alt="Email Now">
+                    <img src="{{ '/webesetec_1.1.0/web/' ~ directory }}/ressources/theme/images/mailing.png" alt="Email Now">
                   </div>
                   <div class="text">
                     <span>Email Now</span> <strong><a href="mailto:{{ header_email }}">{{ header_email }}</a></strong>
@@ -52,18 +52,24 @@
                 </div>
               </li>
 
-              {# Bouton de changement de langue #}
+              {# Bouton de changement de langue dynamique #}
               <li>
                 <div class="call-box lang-box dropdown">
                   <div class="icon">
                     <i class="fas fa-globe" style="font-size: 22px; color: #ffffff;"></i>
                   </div>
-                  <div class="text dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor: pointer;">
-                    <span>Langue</span> <strong>FR <i class="fas fa-chevron-down" style="font-size: 10px; margin-left: 2px;"></i></strong>
+                  <div class="text dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor: pointer;">
+                    <span>Langue</span> <strong>{{ current_lang_code|default('FR') }} <i class="fas fa-chevron-down" style="font-size: 10px; margin-left: 2px;"></i></strong>
                   </div>
                   <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item active" href="?language=fr"><i class="fas fa-check" style="font-size: 10px; margin-right: 5px;"></i> Français (FR)</a>
-                    <a class="dropdown-item" href="?language=en">English (EN)</a>
+                    {% for lang in languages_list %}
+                      <a class="dropdown-item {% if lang.is_current %}active{% endif %}" href="{{ lang.url }}">
+                        {% if lang.is_current %}<i class="fas fa-check" style="font-size: 10px; margin-right: 5px;"></i>{% endif %}
+                        {{ lang.name }} ({{ lang.code }})
+                      </a>
+                    {% else %}
+                      <a class="dropdown-item active" href="?language=fr"><i class="fas fa-check" style="font-size: 10px; margin-right: 5px;"></i> Français (FR)</a>
+                    {% endfor %}
                   </div>
                 </div>
               </li>

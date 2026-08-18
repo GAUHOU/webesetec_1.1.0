@@ -1,0 +1,43 @@
+{#
+/**
+ * @file
+ * Fields template for "nos_actualites" block_1 matching Qeducato 1:1 single-post2 card.
+ */
+#}
+{% set node_entity = row._entity %}
+{% set article_url = path('entity.node.canonical', {'node': node_entity.id}) %}
+{% set created_date = node_entity.getCreatedTime|date('d M Y') %}
+
+<div class="single-post2 hover-zoomin mb-30">
+  <div class="blog-thumb2">
+    {% if fields.field_image_actualite.content %}
+      {{ fields.field_image_actualite.content }}
+    {% else %}
+      <a href="{{ article_url }}">
+        <img loading="lazy" src="{{ base_path }}sites/default/files/inline-images/INAUGURATION_FORAGE_ESETEC_1.jpeg" alt="{{ node_entity.label }}" />
+      </a>
+    {% endif %}
+    <div class="date-home">
+      <i class="far fa-calendar-alt"></i> {{ created_date }}
+    </div>
+  </div>
+  <div class="blog-content2">
+    <div class="b-meta">
+      <div class="meta-info">
+        <ul>
+          <li><i class="far fa-user"></i> Par {{ node_entity.getOwner.getDisplayName }}</li>
+          <li><i class="far fa-comments"></i> Actualités</li>
+        </ul>
+      </div>
+    </div>
+    <h4><a href="{{ article_url }}">{{ node_entity.label }}</a></h4>
+    {% if fields.field_description_actualite.content %}
+      <div class="blog-excerpt">
+        {{ fields.field_description_actualite.content }}
+      </div>
+    {% endif %}
+    <div class="blog-btn">
+      <a href="{{ article_url }}">Lire Plus <i class="fas fa-long-arrow-alt-right"></i></a>
+    </div>
+  </div>
+</div>

@@ -12,8 +12,8 @@
     padding-bottom: 15px !important;
     color: #ffffff !important;
     position: relative !important;
-    z-index: 2 !important;
-    overflow: hidden !important;
+    /* z-index: 999 !important; */
+    overflow: visible !important;
 }
 
 .second-header::before,
@@ -161,6 +161,14 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
     padding: 6px 0 !important;
     margin-top: 10px !important;
+}
+
+.header-cta .lang-box .dropdown-menu.show {
+    display: block !important;
+    position: absolute !important;
+    right: 0 !important;
+    top: 100% !important;
+    z-index: 10000 !important;
 }
 
 .header-cta .lang-box .dropdown-item {
@@ -1032,7 +1040,7 @@
     right: 0 !important;
     width: 270px !important;
     background: var(--couleur-principale) !important;
-    padding: 25px 20px !important;
+    padding: 15px !important;
     border-radius: 14px !important;
     border-bottom: 4px solid #132c40 !important;
     /* Bordure inferieure bleu marine */
@@ -1334,7 +1342,7 @@
     display: grid !important;
     grid-template-columns: 75px minmax(0, 1fr) !important;
     grid-template-rows: auto auto !important;
-    column-gap: 20px !important;
+    /* column-gap: 20px !important; */
     row-gap: 10px !important;
     align-items: flex-start !important;
     width: 100% !important;
@@ -1347,9 +1355,9 @@
 .steps-area .field--name-field-nos-meilleurs-atouts .grid-12>.ckeditor-col-container>.grid-12>h1 {
     grid-column: 1 !important;
     grid-row: 1 / span 2 !important;
-    width: 75px !important;
-    height: 75px !important;
-    margin: 0 20px 0 0 !important;
+    width: 60px !important;
+    height: 60px !important;
+    margin: 0 10px 0 0 !important;
     padding: 0 !important;
     border-radius: 50% !important;
     background: var(--couleur-principale) center/36px 36px no-repeat !important;
@@ -1379,7 +1387,7 @@
     margin: 0 !important;
     max-width: 500px !important;
     color: #96bece !important;
-    font: 400 15px/24px 'Jost', sans-serif !important;
+    font: 400 16px/24px 'Jost', sans-serif !important;
 }
 
 .steps-area .field--name-field-nos-meilleurs-atouts .grid-12>.ckeditor-col-container:nth-child(3n + 1) h1 {
@@ -1481,6 +1489,14 @@
     position: relative !important;
     z-index: 2 !important;
     width: 100% !important;
+}
+
+section.breadcrumb-area.d-flex.align-items-center.p-relative .region-page-header {
+    /* border: 2px solid red; */
+    flex-direction: initial;
+    justify-content: center;
+    align-items: center;
+    padding: initial !important;
 }
 
 .breadcrumb-wrap {
@@ -3370,7 +3386,7 @@ section.courses {
 #block-esetec-nosperformances .ckeditor-col-container .grid-12:hover {
     transform: translateY(-8px) !important;
     background: rgba(255, 255, 255, 0.18) !important;
-    border-color: var(--couleur-principale, #ffffff) !important;
+    /* border-color: var(--couleur-principale, #ffffff) !important; */
     box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3) !important;
 }
 
@@ -3581,5 +3597,1545 @@ section.courses {
     }
     #block-esetec-admission .field--name-field-contenu-du-bloc .field-item > .ckeditor-col-container:first-child {
         margin-bottom: 40px !important;
+    }
+}
+
+/* ==========================================================================
+   NODE NOS-ACTUALITES / BLOG SINGLE DETAILS (1:1 QEDUCATO BLOG DETAILS STYLE)
+   ========================================================================== */
+
+/* Main Article & Sidebar Grid Layout */
+.node-type-nos-actualites.inner-blog {
+    padding-top: 40px !important;
+    padding-bottom: 90px !important;
+}
+
+.node-type-nos-actualites .bsingle__post {
+    background: #ffffff !important;
+    border-radius: 12px !important;
+    border: 1px solid #eef2f6 !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04) !important;
+    overflow: hidden !important;
+    margin-bottom: 40px !important;
+}
+
+.node-type-nos-actualites .bsingle__content {
+    padding: 40px 35px !important;
+}
+
+/* 1. Top Featured Image (First Row Image in Article) */
+.node-type-nos-actualites .field--name-field-contenu-de-l-actualite .field-item > .ckeditor-col-container:first-child img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 520px !important;
+    object-fit: cover !important;
+    border-radius: 2px !important;
+    display: block !important;
+    margin-bottom: 25px !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* 2. Meta Info Bar (Placed BELOW top image) */
+.node-type-nos-actualites .meta-info {
+    /* margin-top: 10px !important; */
+    margin-bottom: 25px !important;
+    padding-bottom: 18px !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+}
+
+.node-type-nos-actualites .meta-info ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    gap: 25px !important;
+}
+
+.node-type-nos-actualites .meta-info ul li {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #64748b !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.node-type-nos-actualites .meta-info ul li i {
+    color: var(--couleur-principale, #a20d35) !important;
+    font-size: 15px !important;
+}
+
+/* 3. Typography & Headings */
+.node-type-nos-actualites .field--name-field-contenu-de-l-actualite h1,
+.node-type-nos-actualites h1 {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #141b22 !important;
+    line-height: 1.35 !important;
+    margin-top: 15px !important;
+    margin-bottom: 22px !important;
+    text-transform: uppercase !important;
+}
+
+.node-type-nos-actualites .field--name-field-contenu-de-l-actualite h2,
+.node-type-nos-actualites h2 {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    color: #141b22 !important;
+    line-height: 1.4 !important;
+    /* margin-top: 30px !important; */
+    margin-bottom: 16px !important;
+}
+
+.node-type-nos-actualites .field--name-field-contenu-de-l-actualite h3,
+.node-type-nos-actualites h3 {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #141b22 !important;
+    /* margin-top: 25px !important; */
+    margin-bottom: 14px !important;
+}
+
+.node-type-nos-actualites .field--name-field-contenu-de-l-actualite p,
+.node-type-nos-actualites p {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 16px !important;
+    line-height: 28px !important;
+    color: #6e6e6e !important;
+    margin-bottom: 22px !important;
+}
+
+/* 4. Lists & Checkmarks */
+.node-type-nos-actualites .field--name-field-contenu-de-l-actualite ul {
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin-top: 15px !important;
+    margin-bottom: 25px !important;
+}
+
+.node-type-nos-actualites .field--name-field-contenu-de-l-actualite ul li {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 15px !important;
+    color: #555555 !important;
+    line-height: 26px !important;
+    margin-bottom: 12px !important;
+    position: relative !important;
+    padding-left: 28px !important;
+    list-style: none !important;
+}
+
+.node-type-nos-actualites .field--name-field-contenu-de-l-actualite ul li::before {
+    content: "\f058" !important;
+    font-family: "Font Awesome 5 Free" !important;
+    font-weight: 900 !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 3px !important;
+    color: var(--couleur-principale, #a20d35) !important;
+    font-size: 15px !important;
+}
+
+/* 5. 2-Column Side-by-Side Images */
+.node-type-nos-actualites .field--name-field-contenu-de-l-actualite .ckeditor-col-container .grid-6,
+.node-type-nos-actualites .field--name-field-contenu-de-l-actualite .ckeditor-col-container .sixcol {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+    width: 50% !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    box-sizing: border-box !important;
+    float: left !important;
+}
+
+.node-type-nos-actualites .field--name-field-contenu-de-l-actualite .ckeditor-col-container:has(.grid-6) {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin-left: -10px !important;
+    margin-right: -10px !important;
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+}
+
+.node-type-nos-actualites .field--name-field-contenu-de-l-actualite .grid-6 img,
+.node-type-nos-actualites .field--name-field-contenu-de-l-actualite .sixcol img {
+    width: 100% !important;
+    /* height: 270px !important; */
+    object-fit: cover !important;
+    border-radius: 2px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
+    display: block !important;
+}
+
+/* 6. Dark Quote Card (Qeducato 1:1) */
+.node-type-nos-actualites blockquote,
+.node-type-nos-actualites .quote-box {
+    background: #141b22 !important;
+    border-radius: 12px !important;
+    padding: 45px 40px !important;
+    position: relative !important;
+    z-index: 2 !important;
+    text-align: center !important;
+    margin: 35px 0 !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
+}
+
+.node-type-nos-actualites blockquote p,
+.node-type-nos-actualites .quote-box p {
+    color: #ffffff !important;
+    font-family: 'Jost', sans-serif !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    line-height: 1.45 !important;
+    margin-bottom: 0 !important;
+}
+
+.node-type-nos-actualites blockquote footer,
+.node-type-nos-actualites .quote-box .author {
+    color: var(--couleur-principale, #a20d35) !important;
+    font-family: 'Jost', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    text-transform: capitalize !important;
+    letter-spacing: 0.5px !important;
+    margin-bottom: 12px !important;
+    display: block !important;
+}
+
+/* 7. Image Floated Left with Text Wrapped */
+.node-type-nos-actualites .field--name-field-contenu-de-l-actualite p img:first-child,
+.node-type-nos-actualites .field--name-field-contenu-de-l-actualite img.alignleft {
+    float: left !important;
+    margin-right: 25px !important;
+    margin-bottom: 15px !important;
+    max-width: 280px !important;
+    border-radius: 8px !important;
+}
+
+/* 8. Post Tags Pills */
+.node-type-nos-actualites .post-tags-box {
+    margin-top: 35px !important;
+    padding-top: 22px !important;
+    border-top: 1px solid #f0f0f0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+    flex-wrap: wrap !important;
+}
+
+.node-type-nos-actualites .post-tags-box .tag-title {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #141b22 !important;
+    margin: 0 !important;
+}
+
+.node-type-nos-actualites .post-tags-box .tag-link {
+    display: inline-block !important;
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 4px !important;
+    padding: 6px 16px !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: #64748b !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.node-type-nos-actualites .post-tags-box .tag-link:hover {
+    background: var(--couleur-principale, #a20d35) !important;
+    color: #ffffff !important;
+    border-color: var(--couleur-principale, #a20d35) !important;
+}
+
+/* ==========================================================================
+   QEDUCATO BLOG SIDEBAR WIDGETS (1:1 STYLE)
+   ========================================================================== */
+.node-type-nos-actualites .sidebar-widget .widget {
+    background: #ffffff !important;
+    border: 1px solid #f0f0f0 !important;
+    border-radius: 10px !important;
+    padding: 30px 25px !important;
+    margin-bottom: 30px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03) !important;
+}
+
+.node-type-nos-actualites .sidebar-widget .widget-title {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #141b22 !important;
+    position: relative !important;
+    padding-bottom: 12px !important;
+    margin-bottom: 25px !important;
+    border-bottom: 2px solid #f0f0f0 !important;
+}
+
+.node-type-nos-actualites .sidebar-widget .widget-title::before {
+    content: '' !important;
+    position: absolute !important;
+    left: 0 !important;
+    bottom: -2px !important;
+    width: 40px !important;
+    height: 2px !important;
+    background: var(--couleur-principale, #a20d35) !important;
+}
+
+/* Search Widget */
+.node-type-nos-actualites .widget_search .search-form-group {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+}
+
+.node-type-nos-actualites .widget_search .search-field {
+    background: #f7fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 6px !important;
+    padding: 12px 16px !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 14px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.node-type-nos-actualites .widget_search .search-submit {
+    background: var(--couleur-principale, #a20d35) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 6px !important;
+    padding: 12px 20px !important;
+    font-family: 'Jost', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+    transition: background 0.3s ease !important;
+    text-transform: uppercase !important;
+}
+
+.node-type-nos-actualites .widget_search .search-submit:hover {
+    background: #7a0927 !important;
+}
+
+/* Social Widget */
+.node-type-nos-actualites .widget_social .widget-social {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin-bottom: 15px !important;
+}
+
+.node-type-nos-actualites .widget_social .widget-social a {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 50% !important;
+    background: #f4f6f8 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #64748b !important;
+    font-size: 15px !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.node-type-nos-actualites .widget_social .widget-social a:hover {
+    background: var(--couleur-principale, #a20d35) !important;
+    color: #ffffff !important;
+    transform: translateY(-3px) !important;
+}
+
+/* Recent Posts Widget */
+.node-type-nos-actualites .recent-posts-widget ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.node-type-nos-actualites .recent-posts-widget ul li {
+    margin-bottom: 18px !important;
+    padding-bottom: 18px !important;
+    border-bottom: 1px solid #f5f5f5 !important;
+}
+
+.node-type-nos-actualites .recent-posts-widget ul li:last-child {
+    border-bottom: none !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.node-type-nos-actualites .recent-posts-widget ul li a {
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+    text-decoration: none !important;
+}
+
+.node-type-nos-actualites .recent-posts-widget ul li img {
+    width: 75px !important;
+    height: 75px !important;
+    object-fit: cover !important;
+    border-radius: 6px !important;
+    flex-shrink: 0 !important;
+}
+
+.node-type-nos-actualites .recent-posts-widget .rpwwt-post-title {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #141b22 !important;
+    line-height: 1.4 !important;
+    transition: color 0.3s ease !important;
+    margin-top: -25px !important;
+}
+
+.node-type-nos-actualites .recent-posts-widget ul li a:hover .rpwwt-post-title {
+    color: var(--couleur-principale, #a20d35) !important;
+}
+
+.node-type-nos-actualites .recent-posts-widget .rpwwt-post-date {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 12px !important;
+    color: #94a3b8 !important;
+    margin-top: 8px !important;
+    padding-left: 89px !important;
+}
+
+/* About Widget */
+.node-type-nos-actualites .widget_about .sidebar-about-logo {
+    max-width: 120px !important;
+    margin: 0 auto 12px !important;
+    display: block !important;
+}
+
+.node-type-nos-actualites .widget_about h5.title {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #141b22 !important;
+    margin-bottom: 8px !important;
+}
+
+.node-type-nos-actualites .widget_about p {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 13px !important;
+    color: #64748b !important;
+    line-height: 20px !important;
+    margin: 0 !important;
+}
+
+/* Categories Widget */
+.node-type-nos-actualites .widget_categories ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.node-type-nos-actualites .widget_categories ul li {
+    padding: 10px 0 !important;
+    border-bottom: 1px solid #f5f5f5 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.node-type-nos-actualites .widget_categories ul li:last-child {
+    border-bottom: none !important;
+}
+
+.node-type-nos-actualites .widget_categories ul li a {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #64748b !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
+}
+
+.node-type-nos-actualites .widget_categories ul li a:hover {
+    color: var(--couleur-principale, #a20d35) !important;
+}
+
+.node-type-nos-actualites .widget_categories ul li .count,
+.node-type-nos-actualites .widget_categories ul li .cat-count {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 13px !important;
+    color: #94a3b8 !important;
+}
+
+/* Tags Cloud Widget */
+.node-type-nos-actualites .widget_tags .tagcloud {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+}
+
+.node-type-nos-actualites .widget_tags .tag-cloud-link {
+    display: inline-block !important;
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 4px !important;
+    padding: 6px 14px !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: #64748b !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.node-type-nos-actualites .widget_tags .tag-cloud-link:hover {
+    background: var(--couleur-principale, #a20d35) !important;
+    color: #ffffff !important;
+    border-color: var(--couleur-principale, #a20d35) !important;
+}
+
+/* ==========================================================================
+   HOMEPAGE BLOG BLOCK - BLOCK NOS ACTUALITES (QEDUCATO 1:1 HOMEPAGE BLOG AREA)
+   ========================================================================== */
+
+#block-esetec-views-block-nos-actualites-block-1,
+.blog-area {
+    padding-top: 90px !important;
+    padding-bottom: 70px !important;
+    position: relative !important;
+    background: #ffffff !important;
+}
+
+#block-esetec-views-block-nos-actualites-block-1 .block-title,
+#block-esetec-views-block-nos-actualites-block-1 > h2 {
+    display: none !important;
+}
+
+/* Section Title Header */
+.blog-area .section-title {
+    text-align: center !important;
+    margin-bottom: 50px !important;
+}
+
+.blog-area .section-title h5 {
+    color: var(--couleur-principale, #a20d35) !important;
+    font-family: 'Jost', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    margin-bottom: 10px !important;
+    display: block !important;
+}
+
+.blog-area .section-title h5 i {
+    margin-right: 6px !important;
+}
+
+.blog-area .section-title h2 {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 36px !important;
+    font-weight: 700 !important;
+    color: #141b22 !important;
+    margin-bottom: 0 !important;
+    line-height: 1.3 !important;
+}
+
+/* Single Post Card Container */
+.single-post2 {
+    background: #ffffff !important;
+    border-radius: 10px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07) !important;
+    overflow: hidden !important;
+    margin-bottom: 30px !important;
+    border: 1px solid #f0f0f0 !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+.single-post2:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Thumbnail Wrapper */
+.single-post2 .blog-thumb2 {
+    position: relative !important;
+    overflow: hidden !important;
+    border-radius: 10px 10px 0 0 !important;
+    height: 240px !important;
+}
+
+.single-post2 .blog-thumb2 a {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.single-post2 .blog-thumb2 img {
+    width: 100% !important;
+    height: 240px !important;
+    object-fit: cover !important;
+    border-radius: 10px 10px 0 0 !important;
+    transition: transform 0.5s ease !important;
+}
+
+.single-post2:hover .blog-thumb2 img {
+    transform: scale(1.08) !important;
+}
+
+/* Date Overlay Tag (Qeducato Date Tag 1:1) */
+.single-post2 .blog-thumb2 .date-home {
+    position: absolute !important;
+    top: 20px !important;
+    left: 20px !important;
+    background: var(--couleur-principale, #a20d35) !important;
+    color: #ffffff !important;
+    padding: 6px 16px !important;
+    border-radius: 6px !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    z-index: 2 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    box-shadow: 0 4px 12px rgba(162, 13, 53, 0.3) !important;
+}
+
+.single-post2 .blog-thumb2 .date-home i {
+    color: #ffffff !important;
+    font-size: 13px !important;
+}
+
+/* Content Area */
+.single-post2 .blog-content2 {
+    padding: 28px 25px 30px !important;
+    background: #ffffff !important;
+    border-radius: 0 0 10px 10px !important;
+}
+
+/* Meta Info Line */
+.single-post2 .b-meta {
+    margin-bottom: 12px !important;
+}
+
+.single-post2 .b-meta .meta-info ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 18px !important;
+}
+
+.single-post2 .b-meta .meta-info ul li {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 13px !important;
+    color: #777777 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+.single-post2 .b-meta .meta-info ul li i {
+    color: var(--couleur-principale, #a20d35) !important;
+    font-size: 13px !important;
+}
+
+/* Card Title */
+.single-post2 .blog-content2 h4 {
+    margin: 0 0 14px 0 !important;
+    font-size: 19px !important;
+    line-height: 1.35 !important;
+}
+
+.single-post2 .blog-content2 h4 a {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 19px !important;
+    font-weight: 700 !important;
+    color: #141b22 !important;
+    text-decoration: none !important;
+    line-height: 26px !important;
+    transition: color 0.3s ease !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+
+.single-post2 .blog-content2 h4 a:hover {
+    color: var(--couleur-principale, #a20d35) !important;
+}
+
+/* Excerpt Description */
+.single-post2 .blog-excerpt,
+.single-post2 .blog-content2 p {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 14px !important;
+    line-height: 24px !important;
+    color: #6e6e6e !important;
+    margin-bottom: 20px !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+
+.single-post2 .blog-excerpt p {
+    margin-bottom: 0 !important;
+}
+
+/* Read More Button */
+.single-post2 .blog-btn a {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: var(--couleur-principale, #a20d35) !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    transition: color 0.3s ease !important;
+}
+
+.single-post2 .blog-btn a:hover {
+    color: #125875 !important;
+}
+
+.single-post2 .blog-btn a:hover i {
+    transform: translateX(4px) !important;
+}
+
+/* ==========================================================================
+   BLOCK NOS PARTENAIRES (QEDUCATO 1:1 BRAND-AREA SLIDER)
+   ========================================================================== */
+
+#block-esetec-nospartenaires,
+.brand-area {
+    padding-top: 60px !important;
+    padding-bottom: 60px !important;
+    background: #ffffff !important;
+    border-top: 1px solid #f0f0f0 !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+    position: relative !important;
+    clear: both !important;
+    overflow: hidden !important;
+}
+
+#block-esetec-nospartenaires .block-title,
+#block-esetec-nospartenaires > h2,
+#block-esetec-nospartenaires .field__label {
+    display: none !important;
+}
+
+/* Single Brand Item Container */
+.single-brand {
+    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 90px !important;
+    padding: 10px 20px !important;
+    box-sizing: border-box !important;
+    outline: none !important;
+}
+
+.single-brand img,
+#block-esetec-nospartenaires img {
+    max-height: 65px !important;
+    max-width: 160px !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    display: inline-block !important;
+    filter: grayscale(100%) !important;
+    opacity: 0.65 !important;
+    transition: all 0.4s ease !important;
+    margin: 0 auto !important;
+}
+
+.single-brand:hover img,
+#block-esetec-nospartenaires img:hover {
+    filter: grayscale(0%) !important;
+    opacity: 1 !important;
+    transform: scale(1.08) !important;
+}
+
+/* Fallback Flex Grid if Slick is not initialized */
+#block-esetec-nospartenaires .brand-active:not(.slick-initialized),
+#block-esetec-nospartenaires .field-item:not(.brand-slider-initialized) {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 30px !important;
+}
+
+#block-esetec-nospartenaires .brand-active:not(.slick-initialized) .single-brand,
+#block-esetec-nospartenaires .field-item:not(.brand-slider-initialized) .ckeditor-col-container {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    margin: 0 !important;
+}
+
+#block-esetec-nospartenaires .field-item p {
+    display: none !important;
+}
+
+/* Responsive adjustments for mobile and tablets */
+@media (max-width: 767px) {
+    #block-esetec-nospartenaires,
+    .brand-area {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+    }
+    
+    .single-brand {
+        height: 75px !important;
+        padding: 5px 10px !important;
+    }
+    
+    .single-brand img,
+    #block-esetec-nospartenaires img {
+        max-height: 50px !important;
+        max-width: 120px !important;
+    }
+}
+
+/* ==========================================================================
+   BLOCK FAQ (QEDUCATO 1:1 FAQ AREA STYLING)
+   ========================================================================== */
+
+#block-esetec-voustrouverezicitouteslesreponses,
+.faq-area {
+    padding-top: 100px !important;
+    padding-bottom: 100px !important;
+    background: #ffffff !important;
+    position: relative !important;
+}
+
+#block-esetec-voustrouverezicitouteslesreponses .section-title h2,
+#block-esetec-voustrouverezicitouteslesreponses .section-title h3 {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 34px !important;
+    font-weight: 700 !important;
+    color: #141b22 !important;
+    line-height: 1.3 !important;
+    margin-bottom: 15px !important;
+}
+
+#block-esetec-voustrouverezicitouteslesreponses .section-title p {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 15px !important;
+    line-height: 26px !important;
+    color: #6e6e6e !important;
+    margin-bottom: 30px !important;
+}
+
+/* FAQ Accordion Card Container */
+#block-esetec-voustrouverezicitouteslesreponses .card {
+    border: none !important;
+    border-radius: 6px !important;
+    margin-bottom: 15px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+#block-esetec-voustrouverezicitouteslesreponses .card-header {
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    position: relative !important;
+}
+
+#block-esetec-voustrouverezicitouteslesreponses .faq-btn {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 17px !important;
+    font-weight: 600 !important;
+    color: var(--couleur-principale, #a20d35) !important;
+    background: #ffffff !important;
+    border: 1px solid var(--couleur-principale, #a20d35) !important;
+    border-radius: 6px !important;
+    padding: 18px 75px 18px 25px !important;
+    width: 100% !important;
+    text-align: left !important;
+    position: relative !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+#block-esetec-voustrouverezicitouteslesreponses .faq-btn.collapsed {
+    background: #ffffff !important;
+    color: #141b22 !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+#block-esetec-voustrouverezicitouteslesreponses .faq-btn::after {
+    content: "\f107" !important;
+    font-family: "Font Awesome 5 Free" !important;
+    font-weight: 900 !important;
+    position: absolute !important;
+    top: 50% !important;
+    right: 20px !important;
+    transform: translateY(-50%) !important;
+    font-size: 20px !important;
+    color: var(--couleur-principale, #a20d35) !important;
+    transition: all 0.3s ease !important;
+}
+
+#block-esetec-voustrouverezicitouteslesreponses .faq-btn.collapsed::after {
+    content: "\f105" !important;
+    color: #64748b !important;
+}
+
+#block-esetec-voustrouverezicitouteslesreponses .card-body {
+    padding: 20px 25px 20px 25px !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 15px !important;
+    line-height: 26px !important;
+    color: #6e6e6e !important;
+    background: #f8fafc !important;
+    border-radius: 0 0 6px 6px !important;
+    border: 1px solid #e2e8f0 !important;
+    border-top: none !important;
+}
+
+/* Image container on the right */
+#block-esetec-voustrouverezicitouteslesreponses .faq-img-box img {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+/* =====================================================
+   BLOCK HISTORIQUE DE L'ESETEC - EXACT MODEL IMAGE 3 REPRODUCTION
+   ===================================================== */
+#block-esetec-histoiriquedeesetec {
+    background-color: #f2f7fd !important;
+    padding: 80px 0 100px 0 !important;
+    font-family: 'Roboto', 'Jost', sans-serif !important;
+    color: #222222 !important;
+}
+
+/* Completely disable red "01" counter circles & reset left padding */
+#block-esetec-histoiriquedeesetec .field--name-field-mots-sur-l-universite-droi .field-item>div>div::before,
+#block-esetec-histoiriquedeesetec .field--name-field-mots-sur-l-universite-droi .field-item::before,
+#block-esetec-histoiriquedeesetec .ckeditor-col-container::before {
+    content: none !important;
+    display: none !important;
+}
+
+#block-esetec-histoiriquedeesetec .field--name-field-mots-sur-l-universite-droi .field-item>div>div {
+    padding-left: 0 !important;
+}
+
+/* Reset inner CKEditor grid overrides */
+#block-esetec-histoiriquedeesetec .ckeditor-col-container,
+#block-esetec-histoiriquedeesetec .ckeditor-col-container .grid-12,
+#block-esetec-histoiriquedeesetec .ckeditor-col-container [class*="col-"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* ----------------------------------------------------
+   TOP HERO SECTION (Model Image 3)
+   ---------------------------------------------------- */
+
+#block-esetec-histoiriquedeesetec .historique-hero-row {
+    position: relative !important;
+    /* margin-bottom: 60px !important; */
+    margin-bottom: 0 !important;
+}
+
+#block-esetec-histoiriquedeesetec .historique-hero-left {
+    padding-right: 40px !important;
+}
+
+/* Top Thick Horizontal Accent Bar (Model Image 3) */
+#block-esetec-histoiriquedeesetec .model-accent-bar-top {
+    width: 250px !important;
+    height: 10px !important;
+    background-color: var(--couleur-principale, #ff7350) !important;
+    margin-bottom: 25px !important;
+    border-radius: 2px !important;
+}
+
+/* Main Title ("Linda Hudson" / "Une vision née de l’excellence technique") */
+#block-esetec-histoiriquedeesetec h1,
+#block-esetec-histoiriquedeesetec .historique-hero-title-box h1,
+#block-esetec-histoiriquedeesetec .historique-hero-title-box h2:first-child {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    color: #111111 !important;
+    line-height: 1.2 !important;
+    margin: 15px 0 25px 0 !important;
+    position: relative !important;
+}
+
+/* Bottom Thick Horizontal Accent Bar under Title (Model Image 3) */
+#block-esetec-histoiriquedeesetec h1::after,
+#block-esetec-histoiriquedeesetec .historique-hero-title-box h1::after {
+    content: "" !important;
+    display: block !important;
+    width: 250px !important;
+    height: 10px !important;
+    background-color: var(--couleur-principale, #ff7350) !important;
+    margin-top: 25px !important;
+    border-radius: 2px !important;
+}
+
+/* Social Icons Row (Model Image 3) */
+#block-esetec-histoiriquedeesetec .historique-hero-social-icons {
+    display: flex !important;
+    gap: 18px !important;
+    margin: 25px 0 35px 0 !important;
+}
+
+#block-esetec-histoiriquedeesetec .historique-hero-social-icons a {
+    color: #111111 !important;
+    font-size: 1.1rem !important;
+    transition: color 0.2s ease !important;
+}
+
+#block-esetec-histoiriquedeesetec .historique-hero-social-icons a:hover {
+    color: var(--couleur-principale, #ff7350) !important;
+}
+
+/* Subtitle Line (Model Image 3: "LA PRATIQUE DU DROIT") */
+#block-esetec-histoiriquedeesetec h3,
+#block-esetec-histoiriquedeesetec .historique-hero-title-box h3 {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1.5px !important;
+    color: #111111 !important;
+    margin-top: 35px !important;
+    margin-bottom: 12px !important;
+    padding-bottom: 12px !important;
+    border-bottom: 1px solid #dcdcdc !important; /* Thin line divider */
+}
+
+/* Intro Paragraphs in Top Left Column */
+#block-esetec-histoiriquedeesetec .historique-hero-title-box p {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 16px !important;
+    text-align: justify !important;
+    line-height: 1.8 !important;
+    color: #333333 !important;
+    margin-bottom: 16px !important;
+}
+
+/* Right Media Column (Director Photo & Floating Badge) */
+#block-esetec-histoiriquedeesetec .historique-hero-right {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+}
+
+#block-esetec-histoiriquedeesetec .historique-photo-wrapper {
+    width: 100% !important;
+    position: relative !important;
+}
+
+#block-esetec-histoiriquedeesetec .field--name-field-mots-sur-l-universite-gauc {
+    position: relative !important;
+    width: 100% !important;
+}
+
+/* Director Image */
+#block-esetec-histoiriquedeesetec .field--name-field-mots-sur-l-universite-gauc img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 560px !important;
+    object-fit: cover !important;
+    border-radius: 6px !important;
+    display: block !important;
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important; */
+}
+
+/* Compact Floating Experience Badge on bottom-left of photo */
+#block-esetec-histoiriquedeesetec .field--name-field-mots-sur-l-universite-gauc .ckeditor-col-container:first-child {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    background-color: var(--couleur-principale, #ff7350) !important;
+    color: #ffffff !important;
+    padding: 14px 22px !important;
+    border-radius: 6px !important;
+    width: auto !important;
+    max-width: 220px !important;
+    text-align: center !important;
+    margin: 0 !important;
+    /* z-index: 10 !important; */
+    /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important; */
+}
+
+#block-esetec-histoiriquedeesetec .field--name-field-mots-sur-l-universite-gauc h2 {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 2rem !important;
+    font-weight: 800 !important;
+    color: #ffffff !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+}
+
+#block-esetec-histoiriquedeesetec .field--name-field-mots-sur-l-universite-gauc p {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px !important;
+    color: #ffffff !important;
+    margin: 4px 0 0 0 !important;
+    /* text-transform: uppercase !important; */
+}
+
+/* ----------------------------------------------------
+   SECTION 2: Overview / Heading ("Ensemble, nous créons des solutions")
+   ---------------------------------------------------- */
+
+#block-esetec-histoiriquedeesetec .historique-section2-wrapper {
+    margin-top: 40px !important;
+    margin-bottom: 50px !important;
+}
+
+#block-esetec-histoiriquedeesetec .historique-section2-content h4,
+#block-esetec-histoiriquedeesetec .historique-section2-content h2,
+#block-esetec-histoiriquedeesetec .historique-section2-content h3 {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 2rem !important;
+    font-weight: 800 !important;
+    color: #111111 !important;
+    margin-bottom: 15px !important;
+}
+
+#block-esetec-histoiriquedeesetec .historique-section2-content p {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 16px !important;
+    text-align: justify !important;
+    line-height: 1.8 !important;
+    color: #333333 !important;
+    margin-bottom: 15px !important;
+    max-width: 900px !important;
+}
+
+/* Thick Accent Bar Divider below Section 2 (Model Image 3) */
+#block-esetec-histoiriquedeesetec .model-accent-bar-divider {
+    width: 250px !important;
+    height: 10px !important;
+    background-color: var(--couleur-principale, #ff7350) !important;
+    margin-top: 10px !important;
+    margin-bottom: 45px !important;
+    border-radius: 2px !important;
+}
+
+/* ----------------------------------------------------
+   3-COLUMN GRID: Cards (Model Image 3)
+   ---------------------------------------------------- */
+
+#block-esetec-histoiriquedeesetec .historique-cards-grid {
+    margin-top: 20px !important;
+}
+
+#block-esetec-histoiriquedeesetec .historique-card-box {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+#block-esetec-histoiriquedeesetec .historique-card-box h4 {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: #111111 !important;
+    margin: 0 0 15px 0 !important;
+    line-height: 1.35 !important;
+}
+
+#block-esetec-histoiriquedeesetec .historique-card-box p {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 16px !important;
+    text-align: justify !important;
+    line-height: 1.8 !important;
+    color: #333333 !important;
+    margin-bottom: 14px !important;
+}
+
+/* Quote Box (blockquote) Styling */
+#block-esetec-histoiriquedeesetec blockquote {
+    background-color: #fff7f5 !important;
+    border-left: 4px solid var(--couleur-principale, #ff7350) !important;
+    padding: 16px 20px !important;
+    margin-top: 15px !important;
+    margin-bottom: 0 !important;
+    font-style: italic !important;
+    font-size: 0.9rem !important;
+    color: #4a5568 !important;
+    border-radius: 0 4px 4px 0 !important;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 991px) {
+    #block-esetec-histoiriquedeesetec .historique-hero-right {
+        margin-top: 40px !important;
+    }
+    #block-esetec-histoiriquedeesetec .historique-hero-left {
+        padding-right: 0 !important;
+    }
+}
+
+/* Full-bleed layout resets for inner pages */
+.main-wrapper,
+.main-container,
+.main-content,
+.node-content,
+.region-content,
+.block-region {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* =====================================================
+   BLOCK NOS ENGAGEMENTS - 100VW FULL-BLEED QEDUCATO DESIGN (IMAGES 1 & 2)
+   ===================================================== */
+#block-esetec-nosengagements {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: #032e3f !important; /* Qeducato dark teal background */
+    overflow: hidden !important;
+    font-family: 'Jost', sans-serif !important;
+}
+
+#block-esetec-nosengagements .container-fluid,
+#block-esetec-nosengagements .engagements-full-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Row (50% / 50% split) */
+#block-esetec-nosengagements .engagements-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: stretch !important; /* Equal height for text and image columns */
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#block-esetec-nosengagements .engagements-col-text,
+#block-esetec-nosengagements .engagements-col-img {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+    width: 50% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+/* ----------------------------------------------------
+   TEXT BOX (Dark Teal Box with Inner Padding & Centering)
+   ---------------------------------------------------- */
+#block-esetec-nosengagements .engagements-text-box {
+    background-color: #032e3f !important; /* Qeducato dark teal background */
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    /* padding: 90px 110px !important; */
+    padding: 20px 80px !important;
+    min-height: 540px !important;
+    box-sizing: border-box !important;
+}
+
+#block-esetec-nosengagements .engagements-text-inner {
+    /* max-width: 580px !important; */
+    width: 100% !important;
+}
+
+/* Circular Date-Box Badge before title */
+#block-esetec-nosengagements .engagements-icon-badge {
+    width: 65px !important;
+    height: 65px !important;
+    border-radius: 50% !important;
+    background-color: var(--couleur-principale, #ff7350) !important;
+    margin-bottom: 25px !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 28px !important;
+    /* box-shadow: 0 8px 20px rgba(255, 115, 80, 0.4) !important; */
+}
+
+#block-esetec-nosengagements .engagements-badge-1 {
+    /* Target Icon (Notre Objectif) */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z'/%3E%3C/svg%3E") !important;
+}
+
+#block-esetec-nosengagements .engagements-badge-2 {
+    /* Eye Icon (Notre Vision) */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z'/%3E%3C/svg%3E") !important;
+}
+
+#block-esetec-nosengagements .engagements-badge-3 {
+    /* Flag Icon (Notre Mission) */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z'/%3E%3C/svg%3E") !important;
+}
+
+/* Headings (Notre Objectif, Notre Vision, Notre Mission) */
+#block-esetec-nosengagements .engagements-text-inner h3,
+#block-esetec-nosengagements .engagements-text-inner h2 {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 2.75rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin: 0 0 20px 0 !important;
+    line-height: 1.2 !important;
+}
+
+/* Text Paragraphs */
+#block-esetec-nosengagements .engagements-text-inner p {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 16px !important;
+    line-height: 1.85 !important;
+    color: #96bece !important; /* Qeducato light teal body font color */
+    text-align: justify !important;
+    margin: 0 !important;
+}
+
+/* ----------------------------------------------------
+   IMAGE COLUMN (Full Bleed Edge-to-Edge)
+   ---------------------------------------------------- */
+#block-esetec-nosengagements .engagements-img-box {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 540px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#block-esetec-nosengagements img.engagements-img-full,
+#block-esetec-nosengagements .engagements-img-box img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    min-height: 540px !important;
+    object-fit: cover !important;
+    display: block !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Responsive adjustments for tablet / mobile */
+@media (max-width: 1199px) {
+    #block-esetec-nosengagements .engagements-text-box {
+        padding: 60px 50px !important;
+    }
+}
+
+@media (max-width: 991px) {
+    #block-esetec-nosengagements .engagements-col-text,
+    #block-esetec-nosengagements .engagements-col-img {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    #block-esetec-nosengagements .engagements-text-box {
+        padding: 50px 25px !important;
+        min-height: auto !important;
+    }
+    #block-esetec-nosengagements .engagements-img-box,
+    #block-esetec-nosengagements img.engagements-img-full {
+        height: 340px !important;
+        min-height: 340px !important;
+    }
+    #block-esetec-nosengagements .engagements-text-inner h3,
+    #block-esetec-nosengagements .engagements-text-inner h2 {
+        font-size: 2.2rem !important;
+    }
+}
+
+/* =====================================================
+   BLOCK HÉBERGEMENT ÉTUDIANT - EXACT 1:1 REFERENCE MOCKUP
+   ===================================================== */
+#block-esetec-hebergementetudiant,
+.block-esetec-hebergement {
+    background-color: #dcdcdc !important; /* Neutral gray section background like mockup */
+    padding: 80px 0 !important;
+    font-family: 'Jost', sans-serif !important;
+    position: relative !important;
+}
+
+#block-esetec-hebergementetudiant .hebergement-grid-container {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 30px !important;
+    position: relative !important;
+    align-items: stretch !important;
+    min-height: 600px !important;
+}
+
+/* Base Column Structure */
+#block-esetec-hebergementetudiant .hebergement-col {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+}
+
+/* ----------------------------------------------------
+   COLUMN 1: White Card 01 (Top) + Image 1 (Bottom)
+   ---------------------------------------------------- */
+#block-esetec-hebergementetudiant .hebergement-card-01 {
+    background-color: #ffffff !important;
+    padding: 35px 30px !important;
+    border-radius: 0 !important;
+    margin-bottom: 25px !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04) !important;
+}
+
+#block-esetec-hebergementetudiant .hebergement-img-box-1 {
+    width: 100% !important;
+    flex-grow: 1 !important;
+    min-height: 320px !important;
+    overflow: hidden !important;
+}
+
+#block-esetec-hebergementetudiant .hebergement-img-box-1 img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* ----------------------------------------------------
+   COLUMN 2: Full Tall Image 2 + Floating Dark Card 02
+   ---------------------------------------------------- */
+#block-esetec-hebergementetudiant .hebergement-col-2 {
+    position: relative !important;
+}
+
+#block-esetec-hebergementetudiant img.hebergement-img-full-2 {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 600px !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+#block-esetec-hebergementetudiant .hebergement-card-02 {
+    position: absolute !important;
+    top: 30px !important;
+    left: 40px !important;
+    width: 120% !important; /* Overlaps into Column 3 */
+    background-color: #032e3f !important; /* Dark teal navy ESETEC background */
+    color: #ffffff !important;
+    padding: 40px 35px !important;
+    z-index: 10 !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* ----------------------------------------------------
+   COLUMN 3: White Card 03 (Bottom half of Column 3)
+   ---------------------------------------------------- */
+#block-esetec-hebergementetudiant .hebergement-col-3 {
+    justify-content: flex-end !important;
+}
+
+#block-esetec-hebergementetudiant .hebergement-card-03 {
+    background-color: #ffffff !important;
+    padding: 40px 35px !important;
+    margin-top: auto !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Typography & Numbers */
+#block-esetec-hebergementetudiant .hebergement-num {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 40px !important;
+    font-weight: 900 !important;
+    color: #111111 !important;
+    display: block !important;
+    margin-bottom: 15px !important;
+    line-height: 1 !important;
+}
+
+#block-esetec-hebergementetudiant .num-white {
+    color: #ffffff !important;
+}
+
+#block-esetec-hebergementetudiant .hebergement-p-lead {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: #111111 !important;
+    margin-bottom: 12px !important;
+    line-height: 1.5 !important;
+}
+
+#block-esetec-hebergementetudiant .hebergement-title-3 {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 22px !important;
+    font-weight: 800 !important;
+    color: #111111 !important;
+    margin: 0 0 16px 0 !important;
+    line-height: 1.3 !important;
+}
+
+#block-esetec-hebergementetudiant .hebergement-p-body p,
+#block-esetec-hebergementetudiant .hebergement-p-body p strong {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 14.5px !important;
+    line-height: 1.75 !important;
+    color: #444444 !important;
+    margin-bottom: 10px !important;
+}
+
+#block-esetec-hebergementetudiant .hebergement-p-body.text-white p,
+#block-esetec-hebergementetudiant .hebergement-p-body.text-white p strong {
+    color: #d1e5ed !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    #block-esetec-hebergementetudiant .hebergement-grid-container {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+    #block-esetec-hebergementetudiant .hebergement-card-02 {
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        margin-top: -60px !important;
     }
 }

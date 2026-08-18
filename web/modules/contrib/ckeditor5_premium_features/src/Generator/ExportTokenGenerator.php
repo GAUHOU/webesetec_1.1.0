@@ -54,8 +54,12 @@ class ExportTokenGenerator implements TokenGeneratorInterface {
     if (empty($payload['user']['email'])) {
       unset($payload['user']['email']);
     }
+    $accessKey = (string) ($this->settingsConfigHandler->getAccessKey() ?? '');
+    if (empty($accessKey)) {
+      return '';
+    }
 
-    return JWT::encode($payload, $this->settingsConfigHandler->getAccessKey(), static::ALGORITHM);
+    return JWT::encode($payload, $accessKey, static::ALGORITHM);
   }
 
 }

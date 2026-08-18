@@ -2,6 +2,7 @@
 /**
  * @file
  * Template implementation for inner pages in Esetec theme.
+ * Full-width main-wrapper allowing full-bleed edge-to-edge blocks (e.g. Nos Engagements).
  */
 #}
 {% include '@esetec/template-parts/header.html.twig' %}
@@ -29,29 +30,27 @@
   {% include '@thex/template-parts/highlighted.html.twig' %}
 {% endif %}
 
-<div class="main-wrapper">
-  <div class="container">
-    <div class="main-container">
-      <main id="main" class="main-content">
-        <a id="main-content" tabindex="-1"></a>
-        {% if page.content_top %}
-          {% include '@thex/template-parts/content-parts/content_top.html.twig' %}
-        {% endif %}
-        <div class="node-content">
-          {{ page.content }}
-        </div>
-        {% if page.content_bottom %}
-          {% include '@thex/template-parts/content-parts/content_bottom.html.twig' %}
-        {% endif %}
-      </main>
-      {% if page.sidebar_first %}
-        {% include '@thex/template-parts/sidebar/sidebar_left.html.twig' %}
+<div class="main-wrapper w-100 p-0 m-0">
+  <div class="main-container w-100 p-0 m-0">
+    <main id="main" class="main-content w-100 p-0 m-0">
+      <a id="main-content" tabindex="-1"></a>
+      {% if page.content_top %}
+        {% include '@thex/template-parts/content-parts/content_top.html.twig' %}
       {% endif %}
-      {% if page.sidebar_second %}
-        {% include '@thex/template-parts/sidebar/sidebar_right.html.twig' %}
+      <div class="node-content w-100 p-0 m-0">
+        {{ page.content }}
+      </div>
+      {% if page.content_bottom %}
+        {% include '@thex/template-parts/content-parts/content_bottom.html.twig' %}
       {% endif %}
-    </div><!--/main-container -->
-  </div><!--/container -->
+    </main>
+    {% if page.sidebar_first %}
+      {% include '@thex/template-parts/sidebar/sidebar_left.html.twig' %}
+    {% endif %}
+    {% if page.sidebar_second %}
+      {% include '@thex/template-parts/sidebar/sidebar_right.html.twig' %}
+    {% endif %}
+  </div><!--/main-container -->
 </div><!--/main-wrapper -->
 
 {% include '@esetec/template-parts/footer.html.twig' %}

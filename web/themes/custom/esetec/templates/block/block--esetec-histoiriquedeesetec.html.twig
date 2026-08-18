@@ -1,0 +1,70 @@
+{#
+/**
+ * @file
+ * Custom block template for Block Historique de l'ESETEC.
+ * Scoped strictly to #block-esetec-histoiriquedeesetec matching Model Image 3.
+ */
+#}
+{%
+  set classes = [
+    'block',
+    'block-block-content',
+    'block-esetec-historique',
+    'pt-80',
+    'pb-100',
+    'fix',
+  ]
+%}
+<section {{ attributes.addClass(classes) }}>
+  <div class="container">
+    {% if container_1 %}
+      <div class="historique-model-wrapper">
+        {{ content|without('field_mots_sur_l_universite_gauc', 'field_mots_sur_l_universite_droi') }}
+        
+        <!-- HERO ROW (Top Section: 50% Left / 50% Right) -->
+        <div class="row align-items-start historique-hero-row mb-60">
+          <!-- Left Column: Top Orange Accent Bar, Title, Subtitle Line, Intro Text -->
+          <div class="col-lg-6 col-md-12 historique-hero-left">
+            <div class="model-accent-bar-top"></div>
+            <div class="historique-hero-title-box">
+              {{ container_1|raw }}
+            </div>
+          </div>
+          
+          <!-- Right Column: Director Photo & Badge -->
+          <div class="col-lg-6 col-md-12 historique-hero-right">
+            <div class="historique-photo-wrapper">
+              {{ content.field_mots_sur_l_universite_gauc }}
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 2: Section Heading / Subtitle ("Ensemble, nous créons des solutions" / "2002 — La création...") -->
+        {% if container_2 %}
+          <div class="historique-section2-wrapper mb-50">
+            <div class="historique-section2-content">
+              {{ container_2|raw }}
+            </div>
+            <div class="model-accent-bar-divider"></div>
+          </div>
+        {% endif %}
+
+        <!-- 2-COLUMN GRID: Remaining Cards (Containers 3, 4, 5, 6) -->
+        {% if remaining_containers is not empty %}
+          <div class="row historique-cards-grid">
+            {% for card in remaining_containers %}
+              <div class="col-lg-6 col-md-6 col-sm-12 mb-40 historique-card-col">
+                <div class="historique-card-box">
+                  {{ card|raw }}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+      </div>
+    {% else %}
+      {{ content }}
+    {% endif %}
+  </div>
+</section>

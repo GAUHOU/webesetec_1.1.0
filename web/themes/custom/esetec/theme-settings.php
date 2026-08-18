@@ -390,8 +390,13 @@ function esetec_form_system_theme_settings_alter(&$form, FormStateInterface $for
   ];
   $form['slider']['service_cards']['slider_card1_link'] = [
     '#type'          => 'textfield',
-    '#title'         => t('Card 1 Link'),
+    '#title'         => t('Card 1 Link URL'),
     '#default_value' => theme_get_setting('slider_card1_link', 'esetec') ?: 'a-propos',
+  ];
+  $form['slider']['service_cards']['slider_card1_btn_text'] = [
+    '#type'          => 'textfield',
+    '#title'         => t('Card 1 Link Text'),
+    '#default_value' => theme_get_setting('slider_card1_btn_text', 'esetec') ?: 'En savoir plus',
   ];
 
   // Card 2
@@ -407,8 +412,13 @@ function esetec_form_system_theme_settings_alter(&$form, FormStateInterface $for
   ];
   $form['slider']['service_cards']['slider_card2_link'] = [
     '#type'          => 'textfield',
-    '#title'         => t('Card 2 Link'),
+    '#title'         => t('Card 2 Link URL'),
     '#default_value' => theme_get_setting('slider_card2_link', 'esetec') ?: 'a-propos',
+  ];
+  $form['slider']['service_cards']['slider_card2_btn_text'] = [
+    '#type'          => 'textfield',
+    '#title'         => t('Card 2 Link Text'),
+    '#default_value' => theme_get_setting('slider_card2_btn_text', 'esetec') ?: 'En savoir plus',
   ];
 
   // Card 3
@@ -424,8 +434,13 @@ function esetec_form_system_theme_settings_alter(&$form, FormStateInterface $for
   ];
   $form['slider']['service_cards']['slider_card3_link'] = [
     '#type'          => 'textfield',
-    '#title'         => t('Card 3 Link'),
+    '#title'         => t('Card 3 Link URL'),
     '#default_value' => theme_get_setting('slider_card3_link', 'esetec') ?: 'a-propos',
+  ];
+  $form['slider']['service_cards']['slider_card3_btn_text'] = [
+    '#type'          => 'textfield',
+    '#title'         => t('Card 3 Link Text'),
+    '#default_value' => theme_get_setting('slider_card3_btn_text', 'esetec') ?: 'En savoir plus',
   ];
   /*
    * Header

@@ -18,6 +18,7 @@ global-styling:
       ressources/styles/personnalisation.css: {}
       ressources/styles/drupal-theme.css: {}
   js:
+    js/jquery-polyfill.js: {}
     js/slick.min.js: {}
     ressources/scripts/litespeed/af8cc39385bfa5abe5800cd27e19570d.js: {}
     ressources/scripts/litespeed/53f8c3eb8833b0aa9d2a412f67c79ff8.js: {}

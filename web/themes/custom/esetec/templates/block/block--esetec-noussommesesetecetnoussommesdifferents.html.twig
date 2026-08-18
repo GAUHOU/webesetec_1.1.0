@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Template override for "Nous sommes ESETEC et nous sommes différents" (Centered & Larger Text Mode).
+ * Template override for "Nous sommes ESETEC et nous sommes différents" (100% Dynamic from Database).
  */
 #}
 <section id="block-esetec-noussommesesetecetnoussommesdifferents" class="cta-area cta-bg pt-160 pb-160 p-relative fix">
@@ -17,12 +17,7 @@
     <div class="row justify-content-center text-center">
       <div class="col-xl-10 col-lg-10 col-md-12 text-center">
         <div class="section-title cta-title video-title text-center">
-          {% if content.field_texte_pub %}
-            {{ content.field_texte_pub }}
-          {% else %}
-            <h2>Nous sommes <span>ESETEC</span> et nous sommes différents</h2>
-            <p>Notre communauté est appelée à réinventer l'avenir. En tant que seule université abritant une école de design renommée,</p>
-          {% endif %}
+          {{ content }}
         </div>
       </div>
     </div>

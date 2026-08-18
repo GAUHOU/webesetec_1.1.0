@@ -40,7 +40,7 @@ class ComposerDependencyChecker {
       return FALSE;
     }
 
-    return class_exists($this->libraryClassMap[$libraryName], false);
+    return class_exists($this->libraryClassMap[$libraryName]);
   }
 
   /**

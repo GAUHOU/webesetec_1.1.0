@@ -23,4 +23,7 @@
       </div>
     </div>
   </div>
+
+  {# Transmet les métadonnées et cache tags Drupal pour l'invalidation automatique après modification admin #}
+  {{ content|without('field_image_arriere_plan', 'field_contenu_de_la_pub') }}
 </section>

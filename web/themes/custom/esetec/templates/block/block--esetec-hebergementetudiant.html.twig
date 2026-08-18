@@ -1,0 +1,70 @@
+{#
+/**
+ * @file
+ * Custom block template for Block Hébergement Étudiant.
+ * Exact 1:1 implementation of the 3-column reference mockup.
+ */
+#}
+{%
+  set classes = [
+    'block',
+    'block-block-content',
+    'block-esetec-hebergement',
+    'py-5',
+    'fix',
+  ]
+%}
+<section {{ attributes.addClass(classes) }}>
+  <div class="container">
+    {% if hebergement_data %}
+      <div class="hebergement-grid-container">
+        
+        {# COLUMN 1: White Card 01 (Top) + Image 1 (Bottom) #}
+        <div class="hebergement-col hebergement-col-1">
+          <div class="hebergement-card-01">
+            <span class="hebergement-num">01</span>
+            {% if hebergement_data.subtitle_1 %}
+              <p class="hebergement-p-lead">{{ hebergement_data.subtitle_1 }}</p>
+            {% endif %}
+            {% if hebergement_data.text_1 %}
+              <div class="hebergement-p-body">{{ hebergement_data.text_1|raw }}</div>
+            {% endif %}
+          </div>
+          <div class="hebergement-img-box-1">
+            {% if hebergement_data.img_1 %}
+              <img src="{{ hebergement_data.img_1 }}" alt="Hébergement ESETEC 1" />
+            {% endif %}
+          </div>
+        </div>
+
+        {# COLUMN 2: Full Tall Image 2 + Floating Dark Card 02 (Overlapping into Col 3) #}
+        <div class="hebergement-col hebergement-col-2">
+          {% if hebergement_data.img_2 %}
+            <img src="{{ hebergement_data.img_2 }}" alt="Hébergement ESETEC 2" class="hebergement-img-full-2" />
+          {% endif %}
+          <div class="hebergement-card-02">
+            <span class="hebergement-num num-white">02</span>
+            {% if hebergement_data.text_2 %}
+              <div class="hebergement-p-body text-white">{{ hebergement_data.text_2|raw }}</div>
+            {% endif %}
+          </div>
+        </div>
+
+        {# COLUMN 3: White Card 03 (Bottom half of Column 3) #}
+        <div class="hebergement-col hebergement-col-3">
+          <div class="hebergement-card-03">
+            {% if hebergement_data.title_2 %}
+              <h3 class="hebergement-title-3">{{ hebergement_data.title_2 }}</h3>
+            {% endif %}
+            {% if hebergement_data.text_3 %}
+              <div class="hebergement-p-body">{{ hebergement_data.text_3|raw }}</div>
+            {% endif %}
+          </div>
+        </div>
+
+      </div>
+    {% else %}
+      {{ content }}
+    {% endif %}
+  </div>
+</section>

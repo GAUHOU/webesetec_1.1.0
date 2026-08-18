@@ -67,12 +67,163 @@ function esetec_preprocess_html(&$variables) {
  * a new value, without affecting caches for the rest of the site.
  */
 function esetec_preprocess_block(array &$variables): void {
-  if (($variables['plugin_id'] ?? '') !== 'block_content:33735641-c7a1-4fc5-94bc-34b6e86eb67e') {
-    return;
+  if (!empty($variables['site_logo'])) {
+    $variables['site_logo'] = str_replace('http://:./', '/webesetec_1.1.0/web/', (string) $variables['site_logo']);
   }
 
-  $variables['elements']['#cache']['max-age'] = 0;
-  $variables['content']['#cache']['max-age'] = 0;
+  if (($variables['plugin_id'] ?? '') === 'block_content:33735641-c7a1-4fc5-94bc-34b6e86eb67e') {
+    $variables['elements']['#cache']['max-age'] = 0;
+    $variables['content']['#cache']['max-age'] = 0;
+  }
+
+  // Custom preprocess for Historique de l'ESETEC block to match Model Image 3
+  $block_id = $variables['elements']['#id'] ?? $variables['attributes']['id'] ?? $variables['elements']['#configuration']['id'] ?? '';
+  if (str_contains($block_id, 'histoiriquedeesetec') || str_contains($block_id, 'historique')) {
+    $variables['#cache']['max-age'] = 0;
+    if (isset($variables['content']['field_mots_sur_l_universite_droi'])) {
+      $renderer = \Drupal::service('renderer');
+      $field_render = $variables['content']['field_mots_sur_l_universite_droi'];
+      $rendered_text = (string) $renderer->renderPlain($field_render);
+      
+      if (!empty($rendered_text)) {
+        $dom = new \DOMDocument();
+        @$dom->loadHTML(mb_convert_encoding($rendered_text, 'HTML-ENTITIES', 'UTF-8'), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $xpath = new \DOMXPath($dom);
+        $containers = $xpath->query("//div[contains(@class, 'ckeditor-col-container')]");
+        
+        $container_list = [];
+        if ($containers && $containers->length > 0) {
+          foreach ($containers as $c) {
+            $container_list[] = $dom->saveHTML($c);
+          }
+        }
+        
+        if (!empty($container_list)) {
+          $variables['container_1'] = $container_list[0] ?? '';
+          $variables['container_2'] = $container_list[1] ?? '';
+          $variables['remaining_containers'] = array_slice($container_list, 2);
+        }
+      }
+    }
+  }
+
+  // Preprocess for Nos Engagements block (Qeducato 100vw Full-Bleed Edge-to-Edge Grid)
+  if (str_contains($block_id, 'nosengagements') || str_contains($block_id, 'engagements')) {
+    $variables['#cache']['max-age'] = 0;
+    if (isset($variables['content']['field_nos_engagementss'])) {
+      $renderer = \Drupal::service('renderer');
+      $field_render = $variables['content']['field_nos_engagementss'];
+      $rendered_text = (string) $renderer->renderPlain($field_render);
+
+      if (!empty($rendered_text)) {
+        $dom = new \DOMDocument();
+        @$dom->loadHTML(mb_convert_encoding($rendered_text, 'HTML-ENTITIES', 'UTF-8'), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $xpath = new \DOMXPath($dom);
+        $containers = $xpath->query("//div[contains(@class, 'ckeditor-col-container')]");
+
+        $parsed_rows = [];
+        if ($containers && $containers->length > 0) {
+          $item_index = 0;
+          foreach ($containers as $c) {
+            $item_index++;
+            $cols = $xpath->query(".//div[contains(@class, 'grid-6') or contains(@class, 'col-')]", $c);
+
+            $text_html = '';
+            $img_html = '';
+
+            if ($cols && $cols->length >= 1) {
+              foreach ($cols as $col) {
+                $has_img = $xpath->query(".//img", $col);
+                if ($has_img && $has_img->length > 0) {
+                  $img_node = $has_img->item(0);
+                  $src = $img_node->getAttribute('src');
+                  $alt = $img_node->getAttribute('alt');
+                  $img_html = '<img src="' . htmlspecialchars($src) . '" alt="' . htmlspecialchars($alt) . '" class="engagements-img-full" />';
+                } else {
+                  // Extract inner H2/H3 and P content cleanly
+                  $inner_html = '';
+                  foreach ($col->childNodes as $child) {
+                    $inner_html .= $dom->saveHTML($child);
+                  }
+                  $text_html = trim($inner_html);
+                }
+              }
+            }
+
+            if (!empty($text_html) || !empty($img_html)) {
+              $parsed_rows[] = [
+                'index' => $item_index,
+                'text' => $text_html,
+                'img' => $img_html,
+                'is_even' => ($item_index % 2 === 0),
+              ];
+            }
+          }
+        }
+
+        $variables['engagements_rows'] = $parsed_rows;
+      }
+    }
+  }
+
+  // Preprocess for Hébergement Étudiant block matching 3-column overlapping mockup
+  if (str_contains($block_id, 'hebergement') || str_contains($block_id, 'hebergementetudiant')) {
+    $variables['#cache']['max-age'] = 0;
+    $field_render = $variables['content']['field_contenu_de_hebergement_etu'] ?? null;
+    if ($field_render) {
+      $renderer = \Drupal::service('renderer');
+      $rendered_text = (string) $renderer->renderPlain($field_render);
+
+      if (!empty($rendered_text)) {
+        $dom = new \DOMDocument();
+        @$dom->loadHTML(mb_convert_encoding($rendered_text, 'HTML-ENTITIES', 'UTF-8'), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $xpath = new \DOMXPath($dom);
+
+        // Extract images
+        $imgs = $xpath->query("//img");
+        $img_1 = ($imgs && $imgs->length > 0) ? $imgs->item(0)->getAttribute('src') : '';
+        $img_2 = ($imgs && $imgs->length > 1) ? $imgs->item(1)->getAttribute('src') : '';
+
+        // Extract headings
+        $headings = $xpath->query("//h1 | //h2 | //h3");
+        $title_1 = ($headings && $headings->length > 0) ? trim($headings->item(0)->nodeValue) : '';
+        $title_2 = ($headings && $headings->length > 1) ? trim($headings->item(1)->nodeValue) : '';
+
+        // Extract paragraphs
+        $paragraphs = $xpath->query("//p");
+        $p_list = [];
+        if ($paragraphs && $paragraphs->length > 0) {
+          foreach ($paragraphs as $p) {
+            $val = trim($p->nodeValue);
+            if (!empty($val)) {
+              $p_list[] = $val;
+            }
+          }
+        }
+
+        $subtitle_1 = $p_list[0] ?? '';
+        $text_1 = isset($p_list[1]) ? '<p>' . htmlspecialchars($p_list[1]) . '</p>' : '';
+        $text_2 = (isset($p_list[2]) ? '<p><strong>' . htmlspecialchars($p_list[2]) . '</strong></p>' : '') . (isset($p_list[3]) ? '<p>' . htmlspecialchars($p_list[3]) . '</p>' : '');
+        
+        $remaining_p = array_slice($p_list, 4);
+        $text_3 = '';
+        foreach ($remaining_p as $rp) {
+          $text_3 .= '<p>' . htmlspecialchars($rp) . '</p>';
+        }
+
+        $variables['hebergement_data'] = [
+          'title_1' => $title_1 ?: 'Hébergement étudiant',
+          'subtitle_1' => $subtitle_1,
+          'text_1' => $text_1,
+          'img_1' => $img_1,
+          'img_2' => $img_2,
+          'title_2' => $title_2 ?: 'Votre résidence, votre environnement d’études',
+          'text_2' => $text_2,
+          'text_3' => $text_3,
+        ];
+      }
+    }
+  }
 }
 
 function esetec_preprocess_breadcrumb(array &$variables): void {
@@ -162,14 +313,17 @@ function esetec_preprocess_page(array &$variables) {
 	$variables['slider_card1_title'] = theme_get_setting('slider_card1_title', 'esetec') ?: 'Education Services';
 	$variables['slider_card1_desc'] = theme_get_setting('slider_card1_desc', 'esetec') ?: 'Seamlessly visualize quality ellectual capital without superior collaboration and idea sharing listically';
 	$variables['slider_card1_link'] = theme_get_setting('slider_card1_link', 'esetec') ?: 'a-propos';
+	$variables['slider_card1_btn_text'] = theme_get_setting('slider_card1_btn_text', 'esetec') ?: 'En savoir plus';
 
 	$variables['slider_card2_title'] = theme_get_setting('slider_card2_title', 'esetec') ?: 'International Hubs';
 	$variables['slider_card2_desc'] = theme_get_setting('slider_card2_desc', 'esetec') ?: 'Seamlessly visualize quality ellectual capital without superior collaboration and idea sharing listically';
 	$variables['slider_card2_link'] = theme_get_setting('slider_card2_link', 'esetec') ?: 'a-propos';
+	$variables['slider_card2_btn_text'] = theme_get_setting('slider_card2_btn_text', 'esetec') ?: 'En savoir plus';
 
 	$variables['slider_card3_title'] = theme_get_setting('slider_card3_title', 'esetec') ?: 'Bachelor’s and Master’s';
 	$variables['slider_card3_desc'] = theme_get_setting('slider_card3_desc', 'esetec') ?: 'Seamlessly visualize quality ellectual capital without superior collaboration and idea sharing listically';
 	$variables['slider_card3_link'] = theme_get_setting('slider_card3_link', 'esetec') ?: 'a-propos';
+	$variables['slider_card3_btn_text'] = theme_get_setting('slider_card3_btn_text', 'esetec') ?: 'En savoir plus';
 
 	// Header
 	$variables['header_page_content_position'] = theme_get_setting('header_page_content_position', 'esetec');
@@ -178,6 +332,39 @@ function esetec_preprocess_page(array &$variables) {
 	$variables['header_email'] = theme_get_setting('header_email', 'esetec') ?: theme_get_setting('header_email_address', 'esetec') ?: 'info@esetec.edu';
 	$variables['sticky_header_enable'] = theme_get_setting('sticky_header_enable', 'esetec') ?? theme_get_setting('sticky_header_on', 'esetec') ?? theme_get_setting('sticky_header', 'esetec') ?? 1;
 
+	// Dynamic Language Switcher from Drupal Language Manager
+	$language_manager = \Drupal::languageManager();
+	$current_language = $language_manager->getCurrentLanguage();
+	$languages = $language_manager->getLanguages();
+
+	$route_match = \Drupal::routeMatch();
+	$route_name = $route_match->getRouteName() ?: '<current>';
+	$route_params = $route_match->getRawParameters()->all();
+
+	$lang_list = [];
+	foreach ($languages as $lang_id => $language) {
+		try {
+			$url = \Drupal\Core\Url::fromRoute($route_name, $route_params, [
+				'language' => $language,
+			]);
+			$link_url = $url->toString();
+		} catch (\Exception $e) {
+			$link_url = '/' . $lang_id;
+		}
+
+		$lang_list[] = [
+			'id' => $lang_id,
+			'code' => strtoupper($lang_id),
+			'name' => $language->getName(),
+			'is_current' => ($lang_id === $current_language->getId()),
+			'url' => $link_url,
+		];
+	}
+
+	$variables['current_lang_code'] = strtoupper($current_language->getId());
+	$variables['current_lang_name'] = $current_language->getName();
+	$variables['languages_list'] = $lang_list;
+
 	// Sidebar
 	$variables['front_sidebar'] = theme_get_setting('front_sidebar', 'esetec') ?? '';
 	$variables['sidebar_width_default'] = theme_get_setting('sidebar_width_default', 'esetec') ?? '';
@@ -185,7 +372,8 @@ function esetec_preprocess_page(array &$variables) {
 	$variables['sidebar_width_right'] = theme_get_setting('sidebar_width_right', 'esetec') ?? '';
 
 	// Footer
-	$variables['copyright_text'] = theme_get_setting('copyright_text', 'esetec') ?? '';
+	$variables['copyright_text'] = theme_get_setting('copyright_text', 'esetec') ?: 1;
+	$variables['site_name'] = \Drupal::config('system.site')->get('name') ?: 'ESETEC';
 
 	// content
 	$variables['rtl'] = theme_get_setting('rtl', 'esetec') ?? '';
@@ -237,6 +425,40 @@ function esetec_preprocess_page(array &$variables) {
 function esetec_preprocess_node(array &$variables) {
 	$variables['node_author_pic'] = theme_get_setting('node_author_pic', 'esetec');
 	$variables['node_tags'] = theme_get_setting('node_tags', 'esetec');
+
+	$node = $variables['node'] ?? NULL;
+	if ($node && $node->bundle() === 'nos_actualites') {
+		$current_nid = $node->id();
+		$query = \Drupal::entityQuery('node')
+			->accessCheck(FALSE)
+			->condition('type', 'nos_actualites')
+			->condition('status', 1)
+			->condition('nid', $current_nid, '<>')
+			->sort('created', 'DESC')
+			->range(0, 4);
+		$nids = $query->execute();
+
+		$recent_posts = [];
+		if (!empty($nids)) {
+			$nodes = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($nids);
+			foreach ($nodes as $n) {
+				$img_src = '';
+				if ($n->hasField('field_contenu_de_l_actualite') && !$n->get('field_contenu_de_l_actualite')->isEmpty()) {
+					$body = $n->get('field_contenu_de_l_actualite')->value;
+					if (preg_match('/<img[^>]+src=["\']([^"\']+)["\']/i', $body, $matches)) {
+						$img_src = $matches[1];
+					}
+				}
+				$recent_posts[] = [
+					'title' => $n->getTitle(),
+					'url' => $n->toUrl()->toString(),
+					'date' => date('j M Y', $n->getCreatedTime()),
+					'image' => $img_src,
+				];
+			}
+		}
+		$variables['recent_posts'] = $recent_posts;
+	}
 }
 
 /**

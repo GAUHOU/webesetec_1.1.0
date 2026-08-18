@@ -1,11 +1,12 @@
 {#
 /**
  * @file
- * Site branding block — logo dynamique Drupal (comme xara).
+ * Site branding block — logo dynamique Drupal.
  */
 #}
-{% if site_logo %}
+{% set clean_logo = site_logo ? (site_logo|replace({'http://:./': '/webesetec_1.1.0/web/'})) : '/webesetec_1.1.0/web/sites/default/files/logo-trp_2.png' %}
+{% if clean_logo %}
   <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
-    <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
+    <img src="{{ clean_logo }}" alt="{{ 'Home'|t }}" />
   </a>
 {% endif %}

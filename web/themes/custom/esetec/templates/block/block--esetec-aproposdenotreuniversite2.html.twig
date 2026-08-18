@@ -6,7 +6,7 @@
 #}
 <section id="{{ plugin_id }}" class="about-area about-p pt-120 pb-120 p-relative fix">
   <div class="animations-02">
-    <img src="{{ base_path ~ directory ~ '/ressources/medias/2023/02/an-img-02.png' }}" alt="animation image">
+    <img src="{{ '/webesetec_1.1.0/web/' ~ directory ~ '/ressources/medias/2023/02/an-img-02.png' }}" alt="animation image">
   </div>
   <div class="container">
     <div class="row justify-content-center align-items-center">
@@ -32,4 +32,7 @@
 
     </div>
   </div>
+
+  {# Transmet les métadonnées et cache tags Drupal pour l'invalidation automatique après modification admin #}
+  {{ content|without('field_mots_sur_l_universite_gauc', 'field_mots_sur_l_universite_droi') }}
 </section>
